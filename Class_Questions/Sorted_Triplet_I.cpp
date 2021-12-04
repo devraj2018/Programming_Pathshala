@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
   int n;
-  cin>>n;
-  int arr[n];
+  cin>>n;                              // O(n)Time  && O(1)Space
+  int arr[n];                         
   for(int i=0;i<n;i++)
   cin>>arr[i];
   int suffmax[n];
@@ -23,8 +23,7 @@ int main() {
             	flag=true;
             	break;
             }
-    	
-    	
+   	
     }
     if(flag)
     cout<<"Possible";
