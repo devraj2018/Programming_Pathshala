@@ -1,4 +1,4 @@
-
+//    https://codeforces.com/contest/676/problem/B //-->Question Link
 //          Wrong Answer need to do it again//
 #include <bits/stdc++.h>
 using namespcae std;
