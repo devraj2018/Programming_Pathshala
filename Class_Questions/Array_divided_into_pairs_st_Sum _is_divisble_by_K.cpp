@@ -13,8 +13,9 @@ bool fun(int n,int arr[],int k)
 		  	paircount++;
 		  	mp[k-arr[i]%k]--;
 		  }
-			mp[arr[i]%k]++;
-		
+		  else
+			mp[arr[i]%k]++;   //This is in else bcs if we find pair corresponding to that ele
+		                     // We should not insert that ele in map 
 	}
 	if(paircount==n/2)
 	return true;
