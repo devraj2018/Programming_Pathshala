@@ -24,3 +24,43 @@ public:
          
     }
 };
+
+class Solution {  // O(n)Space and O(n)Time method
+public:
+    void preorder_with_null(TreeNode* root,  vector<int>&arr) // Its gives distict and unique order for tree
+    {
+          if(root==NULL)
+          {
+              arr.push_back(INT_MAX);
+              return;
+          }
+          arr.push_back(root->val);
+         preorder_with_null(root->left,arr);
+         preorder_with_null(root->right,arr);
+     }
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        
+        vector<int>array;
+        vector<int>subarray;
+         preorder_with_null(root,array);
+         preorder_with_null(subRoot,subarray);
+        int window=subarray.size();
+        int j;
+        if(array.size()<subarray.size()) return false;
+        for(int i=0;i<=array.size()-window;i++)
+        {   
+              if(array[i]!=subarray[0])
+                  continue;
+              int k=i,j=0;
+              while(j<window &&k<array.size() && array[k]==subarray[j])
+              {
+                  k++;j++;
+              }
+             if(j==window) return true;
+            
+            
+        }
+        return false;
+        
+    }
+};
