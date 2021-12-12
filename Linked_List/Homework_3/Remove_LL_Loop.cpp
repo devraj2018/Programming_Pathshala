@@ -11,7 +11,7 @@ lass Solution
         {
             slow=slow->next;
             fast=fast->next->next;
-            if(slow==fast)
+            if(slow==fast)                     
                break;
         }
         if(fast==NULL || fast->next==NULL) return;
