@@ -8,7 +8,7 @@ int main() {
 			  int mid,low=0,high=n-1;
 			  while(low<=high)
 			    {
-					 mid= high -(high-low)/2;
+					   
 					 if(arr[mid]==1)
 					    {
 							 if(mid==0)  {  f=mid;  break; }
