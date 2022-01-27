@@ -4,7 +4,7 @@ class Solution{
 	int count_zero_till_index(int arr[],int i)
 	{
 	    int count=0;
-	    for(int j=0;j<=i;j++)
+	    for(int j=0;j<i;j++)
 	    {
 	        if(arr[j]==0) count++;
 	    }
