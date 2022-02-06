@@ -1,11 +1,23 @@
-Node *convertExpression(string str,int i)
-{
-   if(i>=str.length())  return NULL;
-     
-    Node* newnode= new Node(str[i]);
+BinaryTreeNode<char> * helper(string &str,int &curr_I){
+
+     if(curr_I>=str.length()) return NULL;
     
-    if(i+1<str.length() && str[i]=='?') newnode->left=convertExpression(str,i+2);
-    else  newnode->right=convertExpression(str,i+2);
-      
-    return newnode;     
+     BinaryTreeNode<char> * root=new BinaryTreeNode<char>(str[curr_I]);
+      curr_I++;
+     if(curr_I<str.size() && str[curr_I]=='?')
+        {  curr_I++;
+           root->left=helper(str,curr_I);
+         
+           curr_I++;
+          root->right=helper(str,curr_I);
+         
+         }
+    return root;
+  
+}
+ 
+BinaryTreeNode<char> * toBinaryTree(string &str){
+    int curr_I=0;
+    
+    return helper(str,curr_I);
 }

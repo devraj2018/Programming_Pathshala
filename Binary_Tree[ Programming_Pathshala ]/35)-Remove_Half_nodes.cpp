@@ -1,4 +1,4 @@
-Node *RemoveHalfNodes(Node *root)
+ Node *RemoveHalfNodes(Node *root)
 {
    if(root==NULL) return NULL;
    if(root->left==NULL && root->right==NULL) return root;
