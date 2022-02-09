@@ -1,70 +1,39 @@
 class MyQueue {
-public:
-    stack<int>s1,s2;
-    int peek_ele=-1;
-    MyQueue() {
-        
+    Stack<Integer> main;
+    Stack<Integer> show;
+    /** Initialize your data structure here. */
+    public MyQueue() {
+        main=new Stack<>();
+        show=new Stack<>();
     }
     
-    void push(int x) {
-            s1.push(x);
-         }
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        main.push(x);
+    }
     
-    int pop() {
-        
-        if(s1.empty() && s2.empty()) return -1;
-        
-        int ans=-1;
-        if(!s2.empty()) 
-        {
-            ans=s2.top();
-            s2.pop();
-            return ans;
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if (show.isEmpty()) {
+            while (!main.isEmpty()) {
+                show.push(main.pop());
+            }
         }
-        
-         
-        
-        while(!s1.empty())
-        {
-             int x=s1.top();
-            s1.pop();
-            s2.push(x);
-            
-        }
-        ans=s2.top();
-        s2.pop();
-        return ans;
-        
+        return show.pop();
     }
     
-    int peek() {
-        
-        if(!s2.empty()) return s2.top();
-        if(s1.empty() && s2.empty()) return -1;
-        
-        while(!s1.empty())
-        {
-             int x=s1.top();
-             s1.pop();
-             s2.push(x);
-            
+    /** Get the front element. */
+    public int peek() {
+        if (show.isEmpty()) {
+            while (!main.isEmpty()) {
+                show.push(main.pop());
+            }
         }
-        int ans=s2.top();
-        return ans;
-        
+        return show.peek();
     }
     
-    bool empty() {
-         if(s1.empty() && s2.empty()) return true;
-        return false;
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return main.isEmpty() && show.isEmpty();
     }
-};
-
-/**
- * Your MyQueue object will be instantiated and called as such:
- * MyQueue* obj = new MyQueue();
- * obj->push(x);
- * int param_2 = obj->pop();
- * int param_3 = obj->peek();
- * bool param_4 = obj->empty();
- */
+}
