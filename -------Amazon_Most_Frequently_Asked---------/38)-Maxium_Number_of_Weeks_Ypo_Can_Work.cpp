@@ -11,7 +11,7 @@ public:
          }
         
         long long remaining= total- max_no;
-        if(remaining>max_no || remaining== max_no ||  remaining+1 == max_no) return total;
+        if(remaining >= max_no ) return total;
         
         return 2*remaining+1;
         
