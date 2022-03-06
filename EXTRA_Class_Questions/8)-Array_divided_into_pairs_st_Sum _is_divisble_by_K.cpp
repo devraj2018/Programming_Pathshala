@@ -3,42 +3,28 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-bool fun(int n,int arr[],int k)
-{
-	int paircount=0;
-	unordered_map<int,int>mp;
-	for(int i=0;i<n;i++)
-	{  if(mp.find(k-arr[i]%k)!=mp.end())
-		  {
-		  	paircount++;
-		  	mp[k-arr[i]%k]--;
-		  }
-		  else
-			mp[arr[i]%k]++;   //This is in else bcs if we find pair corresponding to that ele
-		                     // We should not insert that ele in map 
-	}
-	if(paircount==n/2)
-	return true;
-	return false;
-	
-	
-	
-}
-int main() {
- int n;
- cin>>n;int k;cin>>k;
-   int arr[n];
-   for(int i=0;i<n;i++)
-    cin>>arr[i];
-    if(n&1)  // If array contain odd number of element then its not possible
-    cout<<"Not formed";
-    
-    if(fun(n,arr,k))
-    {
-    	cout<<"formed";
+
+class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        
+        unordered_map<int,int>mp;
+        
+        for(int i=0;i<arr.size();i++)
+        {
+            mp[(k+arr[i]%k)%k]++;       //+k so that we can include negative number and last wala %k bcz
+        }                               // if number is positive then +k increase this greater than k so 
+        
+        for(int i=0;i<arr.size();i++)
+        {
+            int r= (k+arr[i]%k)%k;
+            
+            if(r==0 && mp[r]%2!=0) return false;
+            if( r!=0 && mp[r]!=mp[k-r]) return false;
+                
+            
+        }
+        return true;
+        
     }
-    else
-    cout<<"Not formed";
-    
-	return 0;
-}
+};
