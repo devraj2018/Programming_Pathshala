@@ -52,7 +52,6 @@ int solve(vector<int> &A) {
    for(int i=0;i<candidate.size();i++)
    {
      ans=min(ans, Sum- 2* candidate[i]);
-
    }
    return ans;
 

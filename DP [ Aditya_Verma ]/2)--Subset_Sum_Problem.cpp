@@ -19,3 +19,33 @@ vector<vector<int>>dp(n+1,vector<int>(W+1,0));
  return dp[n][W];
 
 }
+
+-------------------------------------------------------
+-------------------------------------------------------
+
+class Solution{   
+public:
+    int helper(int N, int arr[], int sum,vector<vector<int>>&dp){
+        
+        if(N==0 && sum==0) return 1;
+        if(N==0) return 0;
+        if(sum==0) return 1;
+        
+        if(dp[N][sum]!=-1) return dp[N][sum];
+        
+        if(sum>= arr[N-1])
+          return dp[N][sum]= helper(N-1,arr,sum,dp) || helper(N-1,arr,sum-arr[N-1],dp);
+        else
+           return dp[N][sum]=helper(N-1,arr,sum,dp);
+    }
+    
+    bool isSubsetSum(int N, int arr[], int sum){
+        
+        vector<vector<int>>dp(N+1,vector<int>(sum+1,-1));
+        
+        int ans= helper(N,arr,sum,dp);
+        
+        if(ans) return true;
+        return false;
+        
+    }

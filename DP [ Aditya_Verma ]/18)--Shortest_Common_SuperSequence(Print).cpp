@@ -49,6 +49,11 @@ public:
     }
 };
 
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
 // --------   Mehod -2  Little bit lengthy -----//
 class Solution {
 public:
@@ -79,57 +84,44 @@ public:
                  lcs.push_back(str1[i-1]);
                  i--;j--;
              }
-             else if(dp[i-1][j]>dp[i][j-1])
-             {
-                 i--;
-             }
-            else
-                j--;
+             else if(dp[i-1][j]>dp[i][j-1]) i--;
+             else j--;
              
             
         }
         reverse(lcs.begin(),lcs.end());
         i=0,j=0;int k=0;
         int lcs_length=lcs.length();
-        string ans="";
-        while(k<lcs_length)
-        {
-              if(str1[i]==str2[j] && str1[i]==lcs[k])
-              {
-                  ans.push_back(str1[i]);
+        string scs="";
+         while( k<lcs_length)
+          {
+             if(str1[i]==lcs[k] && str2[j]==lcs[k])
+                {
+                  scs+=str1[i];
                   i++;j++;k++;
-              }
-              else if(str1[i]!=lcs[k] && str2[j]!=lcs[k])
-              {
-                   ans.push_back(str1[i]);
-                  ans.push_back(str2[j]);
-                  i++;
-                  j++;
-                  
-              }
-            else if(str1[i]!=lcs[k])
-            {
-                 ans.push_back(str1[i]);
-                i++;
-            }
-            else
-            {
-                 ans.push_back(str2[j]);
+                }
+              else if(str1[i]==lcs[k])  // Means str2 ele is extra so add that
+                {
+                   scs+=str2[j];
                    j++;
-            }
-            
-         }
-        while(i<n)
-        {
-             ans.push_back(str1[i]);
-                i++; 
-        }
-         while(j<m)
-        {
-             ans.push_back(str2[j]);
-                j++; 
-        }
-        return ans;
+                }
+              else if(str2[j]==lcs[k])   // Means str1 ele is extra so add that
+               { scs+=str1[i];
+                 i++;
+                }
+              else
+                {
+                  scs+=str2[j];   // Means both str1 and str2 ele is extra so add both
+                   j++;
+                  scs+=str1[i];
+                   i++;
+                }
+          }
+        while(i<n) scs+=str1[i++];
+        while(j<m) scs+=str2[j++];
+        
+        return scs;
+
         
         
     }

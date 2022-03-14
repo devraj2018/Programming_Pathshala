@@ -5,52 +5,43 @@
 // 2s1= diff + sum of array
 // s1= (diff + sum of array)/2;
 // Problem reduces to find no of subsets with given sum s1
-int count_zero_till_that_index(int arr[],int i)
-{
-    int count=0;
-    for(int j=0;j<i;j++)
+class Solution {
+public:
+    int count_zero_till_that_index(vector<int>&nums,int start,int end)
     {
-        if(arr[j]==0) count++;
+        int count=0;
+        for(int i=start;i<=end;i++) if(nums[i]==0) count++;
+        
+        return count;
+            
     }
-    return count;
-}
-int CountSubsetSum(int arr[],int n,int sum)
-{
-    vector<vector<int>> dp(n+1,vector<int>(sum+1,0)); // First row automatically initalized by zero
-
-    for(int i=0;i<=n;i++) // for first colum intialized all with one but if we have 0 or more zeros,Thn initialization
-    {                    // ---  is different
-       dp[i][0]= pow(2,count_zero_till_that_index(arr,i));
-    }
-
-    for(int i=1;i<=n;i++)
-    {
-        for(int j=1;j<=sum;j++)
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int sum=0;
+        for(auto x:nums) sum+=x;
+        
+        if(sum < abs(target)  || (sum+target)%2==1) return 0; ///   ---   Important Base CASE  ---        ///
+        
+        int needed_sum= (sum+target)/2;
+        int n=nums.size();
+        
+        vector<vector<int>>dp(n+1,vector<int>(needed_sum+1));
+        
+        for(int i=0;i<=n;i++)
         {
-              if(arr[i-1]<=j)
-               dp[i][j]= dp[i-1][j-arr[i-1]] + dp[i-1][j];
-             else
-               dp[i][j]=dp[i-1][j];
-
+            for(int j=0;j<=needed_sum;j++)
+            {
+                 if(i==0 && j==0) dp[i][j]=1;
+                 else if(i==0) dp[i][j]=0;
+                 else if(j==0) dp[i][j]=pow(2,count_zero_till_that_index(nums,0,i-1));
+                 else if(nums[i-1]<=j) dp[i][j]=dp[i-1][j]+ dp[i-1][j-nums[i-1]];
+                 else dp[i][j]=dp[i-1][j];
+                
+            }
         }
+        return dp[n][needed_sum];
+        
     }
-
-    return dp[n][sum]; 
- 
-}
-int count(int arr[],int n,int diff)
-{
-    int total_sum=0;
-    for(int i=0;i<n;i++) total_sum+= arr[i];
-
-    if(total_sum<abs(diff) || (total_sum+diff)%2==1) return 0;  // Iss case mai answer zero hi hoga
-
-    int sum_subset_1= (diff + total_sum)/2;
-
-    return CountSubsetSum(arr,n,sum_subset_1);
-
-
-}
+};
 
 
 
