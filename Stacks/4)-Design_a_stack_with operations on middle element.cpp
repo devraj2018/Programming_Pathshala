@@ -13,117 +13,132 @@ deleteMiddle in O(1) time */
 #include <bits/stdc++.h>
 using namespace std;
 
-class myStack
-{
-	struct Node
-	{
-		int num;
-		Node *next;
-		Node *prev;
+#include <iostream>
+using namespace std;
 
-		Node(int num)
-		{
-			this->num = num;
-		}
+class MyStack{
+	
+	struct Node{
+		int data;
+		Node* next,*prev;
+		Node(int _data)
+		{   data= _data;
+	     	next=NULL;
+	     	prev=NULL;
+	 	}
 	};
-
-	//Members of stack
-	Node *head = NULL;
-	Node *mid = NULL;
-	int size = 0;
-
-public:
-	void push(int data)
-	{
-		Node *temp = new Node(data);
-		if (size==0)
-		{
-			head = temp;
-			mid = temp;
-			size++;
-			return;
-		}
-
-		head->next = temp;
-		temp->prev = head;
-
-		//update the pointers
-		head = head->next;
-		if (size%2==1)
-		{
-			mid = mid->next;
-		}
-		size++;
-	}
-
-	void pop()
-	{
-		if (size!=0)
-		{
-			if (size==1)
-			{
-				head = NULL;
-				mid = NULL;
-			}
-			else
-			{
-				head = head->prev;
-				head->next = NULL;
-				if (size%2==0)
-				{
-					mid = mid->prev;
-				}
-			}
-			size--;
-		}
-	}
-
-	int findMiddle()
-	{
-		if (size==0)
-		{
-			return -1;
-		}
-		return mid->num;
-	}
-
-	void deleteMiddle()
-	{
-		if (size!=0)
-		{
-			if (size==1)
-			{
-				head = NULL;
-				mid = NULL;
-			}
-			else if (size==2)
-			{
-				head = head->prev;
-				mid = mid->prev;
-				head->next =NULL;
-			}
-			else
-			{
-				mid->next->prev = mid->prev;
-				mid->prev->next = mid->next;
-				if (size%2==0)
-				{
-					mid = mid->prev;
-				}
-				else
-				{
-					mid = mid->next;
-				}
-			}
-			size--;
-		}
-	}
+   public:
+       Node* head,*middle;
+       int curr_size;
+      
+       MyStack(){
+       	curr_size=0;
+       	head=NULL;
+       	middle=NULL;
+       }
+       
+       void push(int x)
+       {   curr_size++;
+       
+       	   if(curr_size==1)
+       	    { 
+       	    	head=new Node(x);
+       	     	middle=head;
+       	    	return;
+       	    }
+       	    
+       	    Node* newnode= new Node(x);
+       	    newnode->next=head;
+       	    head->prev=newnode;
+       	    head=newnode;
+       	    
+       	    if(curr_size%2==1)
+       	    {
+       	    	middle=middle->prev;
+       	    }
+       	    
+       }
+       void pop(){
+       	  if(head==NULL) return;
+       	  
+       	  curr_size--;
+       	  
+       	  if(head==middle)
+       	  {
+       	  	 Node* temp=head;
+       	  	 head=NULL;
+       	  	 middle=NULL;
+       	  	 delete temp;
+       	  	 return;
+       	  	
+       	  }
+       	  
+       	  Node* temp=head;
+       	  head=head->next;
+       	  head->prev=NULL;
+       	  delete temp;
+       	  
+       	  if(curr_size%2==0)
+       	  {
+       	  	middle=middle->next;
+       	  }
+       	 
+       }
+       
+       int findMiddle()
+       {
+       	  if(middle==NULL) return -1;
+       	  return middle->data;
+       }
+       
+       void deleteMiddle()
+       {
+       	   if(head==NULL) return;
+       	   
+       	   
+       	   if(curr_size==1)
+       	   {     
+       	     	 Node* temp=head;
+       	  	     head=NULL;
+       	  	     middle=NULL;
+       	  	     delete temp;
+       	  	      
+       	    }
+       	    else if(curr_size==2)
+       	      { Node* temp=middle;
+       	    	middle=middle->prev;
+       	    	head->next=NULL;
+       	    	delete temp;
+       	     }
+       	     else{
+       	     	  Node* temp=middle;
+       	     	  
+       	     	 if(curr_size%2==0)
+       	     	   { middle=middle->prev;
+       	     	   	 middle->next=temp->next;
+       	     	   	 middle->next->prev=middle;
+       	     	   }
+       	     	 else
+       	     	   { 
+       	     	   	   middle=middle->next;
+       	     	   	   temp->prev->next=middle;
+       	     	   	   middle->prev=temp->prev;
+       	     	   	
+       	     	   }
+       	     	  
+       	     	
+       	       delete temp;	
+       	     }
+       	     
+       	     curr_size--;
+       	   
+       	    
+       }
+  	
 };
 
-
-int main()
-{
-	myStack st;
+int main() {
+MyStack st;
 	st.push(11);
 	st.push(22);
 	st.push(33);
@@ -137,4 +152,5 @@ int main()
 	cout<<st.findMiddle()<<endl;
 	return 0;
 }
-// This code is contributed by Nikhil Goswami
+ 
+

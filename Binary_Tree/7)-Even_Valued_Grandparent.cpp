@@ -1,31 +1,26 @@
-// Approach ----- O(n)Space ------Using unordered map to store parent of every node//
+// Approach ----- O(1)Space ------//
 class Solution {
 public:
-    int ans=0;
-    unordered_map<TreeNode*,TreeNode*>parent;
-    void find_parent(TreeNode* root,TreeNode* par=NULL)
-    { 
-        if(root==NULL) return;
-         
-        parent[root]=par;
-        find_parent(root->left,root);
-        find_parent(root->right,root);
-     }
-        
-    void sum(TreeNode* root)
-      {   
+      void helper(TreeNode* root,TreeNode* par,TreeNode* gpar,int &ans)
+       {
          if(root==NULL) return;
-        
-         if( parent[root] && parent[parent[root]] && parent[parent[root]]->val%2==0)  ans+=root->val;
-          sum(root->left);
-          sum(root->right);
-     }
+         
+         if(gpar && gpar->val%2==0) ans+=root->val;
+         
+          helper(root->left,root,par,ans);
+          helper(root->right,root,par,ans);
+      
+      }
     int sumEvenGrandparent(TreeNode* root) {
-        find_parent(root);
-        sum(root);
+        
+        int ans=0;
+        helper(root,NULL,NULL,ans);
         return ans;
-   }
+        
+    }
 };
+
+
 // Approach 2--  O(1)Space ---- Only recursive space used
 class Solution {
 public:
