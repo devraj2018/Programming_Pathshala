@@ -6,7 +6,7 @@ void bubblingUp( vector<int>&arr,int index)
    {   int par;
        if(index&1) par=index/2;
        else par=index/2-1;
-       while(index>0  &&arr[index] > arr[par])       // 0 Based Indexing 
+       while(index>0  && arr[index] > arr[par])       // 0 Based Indexing 
           {  swap(arr[index], arr[par]);
              index=par;
              if(index&1) par=index/2;

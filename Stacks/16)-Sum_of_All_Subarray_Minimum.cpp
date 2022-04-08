@@ -53,7 +53,7 @@ public:
         {  lcount= (i-left[i]);
            rcount= (right[i]-i);
           
-         ans = (ans%mod + ((long long)lcount*rcount*arr[i])%mod)%mod;
+         ans = ans + lcount*rcount*arr[i];
              
             
         }
