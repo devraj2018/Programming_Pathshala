@@ -14,7 +14,8 @@ public:
              {  int newx=x+dx[i];
                 int newy=y+dy[i];
              
-                if(newx>=0 && newy>=0 && newx<n && newy<m && grid[newx][newy]==1)                                        dfs(grid,newx,newy,n,m);
+                if(newx>=0 && newy>=0 && newx<n && newy<m && grid[newx][newy]==1)
+                    dfs(grid,newx,newy,n,m);
            }
         
     }
