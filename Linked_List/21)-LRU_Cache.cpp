@@ -1,109 +1,104 @@
 class LRUCache {
     struct Node{
-        int key,val;
-        Node* prev,*next;
-        Node(int k,int v)
-        {
-            key=k;val=v;
-            prev=NULL,next=NULL;
-        }
+        int key,value;
+        Node* next,*prev;
+        Node(int _k,int _val)
+           {
+            key=_k;value=_val;
+            next=NULL;prev=NULL;
+           }
      };
 public:
-    Node* head,*tail;
-    int curr_size,max_size;
-    unordered_map<int,Node*>mp;
-    LRUCache(int capacity) {
-        max_size=capacity;
-        curr_size=0;
+     unordered_map<int,Node*>mp;
+     Node* head,*tail;
+     int curr_size,capacity;
+    
+    LRUCache(int _capacity) {
         head=NULL,tail=NULL;
+        curr_size=0;
+        capacity= _capacity;
     }
     
-   
+    void move_to_tail(int key,int val)
+    {
+        mp[key]->value=val;
+        Node* curr_node=mp[key];
+        if(head==tail || curr_node==tail) return;       // if node is last node
+        
+        if(curr_node==head)          // If node is first node
+        {   head=head->next;
+            head->prev=NULL;
+        }
+        else       // Sandwich node
+        {   curr_node->next->prev=curr_node->prev;
+            curr_node->prev->next=curr_node->next;
+        }
+        tail->next=curr_node;          // Inserting at last
+        curr_node->prev=tail;
+        tail=tail->next;
+    }
     
-    void move_to_tail(Node* node,int value)
+    int get(int key) {
+        int ans=-1;
+        
+        if(mp.find(key)!=mp.end())
+           {  ans=mp[key]->value;
+              move_to_tail(key,ans);
+           }
+        return ans;
+     }
+    void insert_At_Tail(Node* curr_node)
     {
-         node->val=value;
-         if(node==tail) return;
-          
-         if(head==node)
-         {
-              head=head->next;
-              head->prev=NULL;
-             
-         }
-        else
-        {
-            node->prev->next=node->next;
-            node->next->prev=node->prev;
-        }
-        
-        tail->next=node;
-        node->prev=tail;
-        tail=node;
-    }
-    Node* add_to_tail(int key,int value)
-    {
-        Node* newnode=new Node(key,value);
-         curr_size++;
-        if(tail==NULL)
-        {  
-            head=newnode;
-            tail=newnode;
-            return newnode;
-        }
-        
-        
-        tail->next=newnode;
-        newnode->prev=tail;
-        tail=newnode;
-        return newnode;
-        
-    }
-    void delete_at_head()
-    {
-        Node* temp=head;
-        head=head->next;
-        curr_size--;
         if(head==NULL)
         {
-            head=NULL;
-            tail=NULL;
+            head=curr_node;
+            tail=curr_node;
             return;
         }
-        head->prev=NULL;
-        delete temp;
         
-        
-        
-    }
-     int get(int key) {
-        
-        if(mp.find(key)==mp.end()) return -1;
-        
-        int ans;
-        ans=mp[key]->val;
-        
-        move_to_tail(mp[key],ans);
-        return ans;
-        
-    }
+        tail->next=curr_node;
+        curr_node->prev=tail;
+        tail=tail->next;
+     }
+    void delete_At_Head()
+    {    Node* temp=head;
+         mp.erase(temp->key);
+        if(head==tail)
+          {   
+              head=NULL;
+              tail=NULL;
+         }
+       else
+        {
+          head=head->next;
+          head->prev=NULL;
+        }
+     delete temp;
+     }
+    
     void put(int key, int value) {
         
         if(mp.find(key)!=mp.end())
-          {
-             move_to_tail(mp[key],value);
-             return;
-          }
+        {
+            move_to_tail(key,value);
+            return;
+        }
         
-         if(curr_size<max_size) mp[key]=add_to_tail(key,value);
-         else
-         {
-            mp.erase(head->key);
-            delete_at_head();
-            mp[key]=add_to_tail(key,value);
+        if(curr_size<capacity)
+        {
+             curr_size++;
+             Node* curr_node=new Node(key,value);
+             mp[key]=curr_node;
+             insert_At_Tail(curr_node);         // Inserting at last
          }
-        
-    }
+        else
+          {
+             delete_At_Head();
+              Node* curr_node=new Node(key,value);
+             mp[key]=curr_node;
+             insert_At_Tail(curr_node);
+        }
+ }
 };
 
 /**
