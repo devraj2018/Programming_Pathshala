@@ -3,54 +3,53 @@
 ------------------------------------------------------------------------------------
 class Solution
 {
-     public:
-     void dfs(int m,int n,string X,string Y, vector<vector<int>>&dp,string curr,unordered_map<string,int>&res)
-     {
-           if(n==0 || m==0)
-            {   res[curr]++;
-                return;
-            }
-            
-            if(X[m-1]==Y[n-1])  dfs(m-1,n-1,X,Y,dp,curr+X[m-1],res);
-            else if(dp[m][n-1]>dp[m-1][n])  dfs(m,n-1,X,Y,dp,curr,res);
-            else if(dp[m][n-1]<dp[m-1][n]) dfs(m-1,n,X,Y,dp,curr,res);
-            else if(dp[m][n-1] == dp[m-1][n] && X[m-1]!=Y[n-1])
-              {   dfs(m,n-1,X,Y,dp,curr,res);
-                  dfs(m-1,n,X,Y,dp,curr,res);
-              }
-             else dfs(m,n-1,X,Y,dp,curr,res);
-      }
-     
-       vector<string> all_longest_common_subsequences(string X, string Y)
+	public:
+	     unordered_map<string,int>mp;
+	     vector<vector<int>>dp;
+	     void dfs(int i,int j,string curr_str,string a,string b)
+	       {
+	            if(i==0 || j==0)
+	                {
+	                  mp[curr_str]++;
+	                  return;
+	               }
+	             
+	            if(a[i-1]==b[j-1]) dfs(i-1,j-1,curr_str+a[i-1],a,b);
+                else if(dp[i-1][j]>dp[i][j-1]) dfs(i-1,j,curr_str,a,b);
+                else if(dp[i-1][j]<dp[i][j-1]) dfs(i,j-1,curr_str,a,b);
+                else
+                  {
+                      dfs(i-1,j,curr_str,a,b);
+                      dfs(i,j-1,curr_str,a,b);
+                  }
+	      }
+		vector<string> all_longest_common_subsequences(string a, string b)
 		{
-		    int m=X.length();
-		    int n=Y.length();
-		    vector<vector<int>>dp(m+1,vector<int>(n+1,0));
-            for(int i=1;i<=m;i++)
-                 {  
-                     for(int j=1;j<=n;j++)
+		    int n1=a.length();
+            int n2=b.length();
+            dp.resize(n1+1,vector<int>(n2+1,0));
+  
+            for(int i=1;i<=n1;i++)
+                {
+                     for(int j=1;j<=n2;j++)
                          {
-                            if(X[i-1]==Y[j-1]) dp[i][j]=1+dp[i-1][j-1];
-                            else  dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+                             if(a[i-1]==b[j-1]) dp[i][j]=1+dp[i-1][j-1];
+                             else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
                          }
-                 }
-                
-            string curr="";
-            unordered_map<string,int>res;
-            dfs(m,n,X,Y,dp,curr,res);
+                }
+  
+            dfs(n1,n2,"",a,b);
             
-            vector<string>final_ans;
-            for(auto x:res)
-            {
-                string temp=x.first;
-                reverse(temp.begin(),temp.end());
-                final_ans.push_back(temp);
-            }
-            sort(final_ans.begin(),final_ans.end());
-            return final_ans;
-                
-                
-                
-                
+            vector<string>final;
+           
+             for(auto s:mp) {   // unordered-map to avoid duplicate subsequence
+               string temp=s.first;
+               reverse(temp.begin(),temp.end());  // because in dfs we start from last,so to correct that
+               final.push_back(temp);
+               
+           }
+           sort(final.begin(),final.end());  // for lexographic order
+           return final;
+
 		}
 };

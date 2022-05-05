@@ -27,3 +27,41 @@ public:
            return dp[n][amount];
     }
 };
+
+------------------------------------------------------------------------------------------------
+------------------------     Memoization DP    ----------------------------------------------
+------------------------------------------------------------------------------------------------
+
+
+class Solution {
+public:
+    
+    int helper(vector<int>&coins,int n,int amount, vector<vector<int>>&dp)
+    {
+        if(amount==0) return 0;
+        if(n==0) return INT_MAX;
+        
+        if(dp[n][amount]!=-1) return dp[n][amount];
+        
+        
+        int ans=INT_MAX;
+        for(int i=0;i<coins.size();i++)
+        {
+            if(amount>=coins[i]) ans=min(ans,helper(coins,n,amount-coins[i],dp));
+        }
+        
+        if(ans==INT_MAX) return dp[n][amount]=INT_MAX;
+        
+        return dp[n][amount]=1+ans;
+        
+    }
+    
+    int coinChange(vector<int>& coins, int amount) {
+        int n=coins.size();
+        vector<vector<int>>dp(n+1,vector<int>(amount+1,-1));
+        
+        int ans=helper(coins,n,amount,dp);
+        if(ans==INT_MAX) return -1;
+        return ans;
+    }
+};
