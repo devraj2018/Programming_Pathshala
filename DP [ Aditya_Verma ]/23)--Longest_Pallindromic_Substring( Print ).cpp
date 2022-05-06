@@ -1,37 +1,33 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        
-        
-        int n=s.length();
-        if(n<=1) return s;
+        string ans="";
         int maxx=0;
-        int starti,endi;
-        
-        for(int i=0;i<n;i++)
+        int i=0,n=s.length();
+        while(i<n)
         {
-             int li=i,ri=i;
-             while(ri<n-1 && s[ri]==s[ri+1]) ri++;  // for Duplicate element
-              
-             i=ri;
-             
-             while(li>0 &&  ri<n-1 && s[li-1]==s[ri+1]) // Both side expanding pallindrome
-             {   li--;
-                 ri++;
+             int left=i,right=i;
+             char curr=s[i];
+            while(i<n && s[i]==curr)
+             {
+                i++;
              }
-           
-             
-            if(maxx< ri-li+1)
-            {   maxx= ri-li+1;
-                starti=li;
-                endi=ri;
-             }
+            right=i-1;
             
-         }
-      //  cout<<starti<<" "<<endi<<" "<<maxx<<endl;
-        string temp= s.substr(starti,endi-starti+1);
-        return temp;
-        
-        
+            while(left>=0 && right<n && s[left]==s[right])
+            {
+                left--;right++;
+            }
+            
+            if(right-left-1 >maxx)
+            {
+                maxx=right-left-1;
+                ans=s.substr(left+1,maxx);
+            }
+            
+            
+            
+        }
+        return ans;
     }
 };

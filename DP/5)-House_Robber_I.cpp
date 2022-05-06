@@ -18,25 +18,27 @@ public:
     }
 };
 
-class Solution          // -----  Top Down--------------//
-{
-    public:
-    vector<int>dp;
-    int helper(int arr[],int n)
-      { if(n<0) return 0;
-        if(n==0) return arr[0];
-        if(n==1) return max(arr[0],arr[1]);
-      
+
+ 
+
+
+class Solution {          // -----  Top Down--------------//
+public:
+    int helper(vector<int>&nums,int n,vector<int>&dp)
+    {
+         if(n<=0) return 0;
+        
         if(dp[n]!=-1) return dp[n];
-      
-      int maxx=INT_MIN;
-      if(n-1>=0) maxx=max(maxx,helper(arr,n-1));
-      if(n-2>=0) maxx=max(maxx,arr[n]+helper(arr,n-2));
-      
-      return dp[n]=maxx;
-   }
-    int FindMaxSum(int arr[], int n)
-    {  dp.resize(n,-1);
-       return helper(arr,n-1);
+        
+        return dp[n]=max(nums[n-1]+helper(nums,n-2,dp),helper(nums,n-1,dp));
+        
+     }
+    int rob(vector<int>& nums) {
+        
+        int n=nums.size();
+        vector<int>dp(n+1,-1);
+        return helper(nums,n,dp);
+        
     }
 };
+ 
