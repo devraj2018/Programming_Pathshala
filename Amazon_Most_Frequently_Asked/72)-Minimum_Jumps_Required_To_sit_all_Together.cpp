@@ -14,6 +14,8 @@ int Solution::seats(string A) {
         }
     }
 
+    
+
     if(count==0 || count==n) return 0;
     int median_index= (count)/2;
     int ans=0;

@@ -15,6 +15,7 @@ public:
         
         char possible[4]={'A','C','G','T'};
         
+        
         while(!q.empty())
         {
              string currWord=q.front().first;

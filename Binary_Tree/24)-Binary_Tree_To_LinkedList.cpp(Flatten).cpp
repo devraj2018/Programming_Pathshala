@@ -1,20 +1,26 @@
-class Solution {           // If we don't need to return anything
+
+class Solution {   // Not returning anything
 public:
-    void flatten(TreeNode* root) {   
+    void flatten(TreeNode* root) {
+     
+         if(root==NULL) return;
         
-        if(root)
-        {
-             TreeNode* curr=root,*stored_rgt_child=root->right;
-             root->right=root->left;
-             root->left=NULL;
+         TreeNode* temp=root->right;
+         root->right=root->left;
+         root->left=NULL;
+        
+         TreeNode* predecessor=root;
+         while(predecessor->right!=NULL)
+         {
+             predecessor=predecessor->right;
              
-             while(curr->right)
-                 curr=curr->right;
-            
-             curr->right=stored_rgt_child;
-             flatten(root->right);
-       }
-      }
+         }
+        predecessor->right=temp;
+        root=root->right;
+        flatten(root);
+        
+       
+    }
 };
 
 class Solution {           // If we need to return root

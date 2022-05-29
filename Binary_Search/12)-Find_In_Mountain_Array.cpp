@@ -34,6 +34,7 @@ public:
         return 0;
         
     }
+    
     int lsearch(MountainArray &mountainArr,int s,int e,int target)
     {
               int mid,low=0,high=e;

@@ -13,6 +13,10 @@ class Solution
             long long b=pq.top(); pq.pop();
              ans+= a+b;
              pq.push(a+b);
+
+
+
+
          }
         return ans;
     }

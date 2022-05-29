@@ -10,6 +10,7 @@ public:
         res.push_back(root->val);
         preorder(root->left,res);
         preorder(root->right,res);
+        
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
       

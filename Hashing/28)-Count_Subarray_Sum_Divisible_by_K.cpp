@@ -10,13 +10,14 @@ public:
         { 
             currsum+=nums[i];
             
-            int rem= (k+currsum%k)%k;
+            int rem= (k+(currsum%k))%k;
             
             if(mp.find(rem)!=mp.end())
             {
                 ans+=mp[rem];
             }
             mp[rem]++;
+            
               
         }
         return ans;

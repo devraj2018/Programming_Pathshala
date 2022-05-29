@@ -22,6 +22,7 @@ public:
         
     }
     
+    
     void increment(int k, int val) {
         
         int loop= k>curr_size ? 0:curr_size-k;

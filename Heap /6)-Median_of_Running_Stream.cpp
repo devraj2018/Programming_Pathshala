@@ -15,6 +15,10 @@ public:
             {   maxx.push(minn.top());
                 minn.pop();
             }
+
+
+
+
       } 
     double findMedian() {
        if(maxx.size()==minn.size()) return (maxx.top()+minn.top())/2.0;

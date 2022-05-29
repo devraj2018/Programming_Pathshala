@@ -12,6 +12,7 @@ public:
              else if(stk.size()<2) return false;
              else
                 { 
+                    
                  if(stk.top()!='b')
                      return false;
                  stk.pop();

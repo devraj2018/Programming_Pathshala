@@ -20,5 +20,6 @@ class Solution{
              maxx=max(maxx,right-left+1);
           }
        return maxx;
+       
     }
 };

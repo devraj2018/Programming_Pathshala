@@ -24,6 +24,7 @@ public:
           root->right=helper(s,curr_depth+1,curr_I);
           return root;
      }
+     
     TreeNode* recoverFromPreorder(string s) {
         if(s.length()==0) return NULL;
         int curr_depth=0;

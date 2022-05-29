@@ -8,6 +8,8 @@ stack<int>s;
              s.push(x);
              return;
            }
+
+           
  
            int a=s.top();
             s.pop();

@@ -14,6 +14,7 @@ string Solution::solve(string s) {
        else  ans.push_back('#');  
    
 
+
   }
   return ans;
 }

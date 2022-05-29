@@ -20,6 +20,7 @@ public:
       int n1=v1.size(),n2=v2.size();
       int i=0,j=0;
       int count=0;
+      
       while(i<n1 && j<n2)
       {
             if((v1[i]+v2[j])==x)

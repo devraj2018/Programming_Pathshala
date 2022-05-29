@@ -15,6 +15,7 @@ public:
         int start=0,n=mountainArr.length();
         int end=n-1;
         int peakIndex;
+        
         int mid;
         while(start<end)
         {   mid= (start+end)/2;

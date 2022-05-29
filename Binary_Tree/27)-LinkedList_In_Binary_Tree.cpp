@@ -15,6 +15,7 @@ public:
     }
     void Path(ListNode* head,TreeNode* root)
     {
+        
          if(root==NULL) return;
         
          if(root->val== head->val) checkPath(head,root);

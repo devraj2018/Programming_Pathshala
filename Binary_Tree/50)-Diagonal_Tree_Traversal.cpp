@@ -15,6 +15,7 @@ void inorder(TreeNode* root,map<int,vector<int>>&mp,int d)
    inorder(root->right,mp,d); 
 
 }
+
 vector<int> Solution::solve(TreeNode* A) {
     map<int,vector<int>> mp;
     vector<int> res;

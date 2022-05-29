@@ -20,6 +20,7 @@ public:
                   if(freq1 == freq2) return true;
                  
              
+             
            }
         return false;
         

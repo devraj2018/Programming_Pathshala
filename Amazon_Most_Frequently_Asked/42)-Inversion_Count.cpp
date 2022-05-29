@@ -11,6 +11,8 @@ class Solution{
     
              for(long long i=0;i<n2;i++) second[i]=arr[mid+i+1];
     
+
+    
              long long i=0,j=0,k=start;
     
               while(i<n1 && j<n2)
@@ -37,6 +39,7 @@ class Solution{
 long long int mergeSort(long long arr[],long long start,long long end)
 {
      long long int ans=0;
+     
      
      if(start<end)
      {

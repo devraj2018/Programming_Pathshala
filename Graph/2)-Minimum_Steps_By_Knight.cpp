@@ -1,6 +1,7 @@
 class Solution 
     {
     public:
+	
     //Function to find out minimum steps Knight needs to reach target position.
     int dx[8]={-1,-1,1,1,-2,-2,2,2};
     int dy[8]={2,-2,2,-2,1,-1,1,-1};

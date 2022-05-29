@@ -14,6 +14,7 @@ public:
             swap(nums[start],nums[end]);
             start++;end--;
         }
+        
         start=n-k;end=n-1;
         while(start<=end)
         {

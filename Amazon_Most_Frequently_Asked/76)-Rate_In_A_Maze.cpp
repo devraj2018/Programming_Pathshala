@@ -17,6 +17,7 @@ class Solution{
         
              for(int i=0;i<4;i++)
                {
+                 
                 int newx=x+dx[i];
                 int newy=y+dy[i];
              

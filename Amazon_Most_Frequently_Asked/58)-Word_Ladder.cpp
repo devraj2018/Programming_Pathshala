@@ -34,6 +34,7 @@ public:
                                   q.push({news,time+1});
                               }
                         }
+                        
                       curr[i]=ch;
                    }
             }

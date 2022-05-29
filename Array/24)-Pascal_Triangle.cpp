@@ -12,6 +12,8 @@ public:
              for(int j=1;j<temp.size()-1;j++)
                temp[j]=res[i-1][j-1]+res[i-1][j];
            
+
+           
            res.push_back(temp);
        }
         return res;

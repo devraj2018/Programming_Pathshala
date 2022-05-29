@@ -10,6 +10,7 @@ public:
         
         for(int i=0;i<n;i++)
         {
+            
              int li=i,ri=i;
              while(ri<n-1 && s[ri]==s[ri+1]) ri++;  // for Duplicate element
               

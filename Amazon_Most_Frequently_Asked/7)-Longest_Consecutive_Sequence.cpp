@@ -23,6 +23,7 @@ public:
                    rgt++;
                    y++;
                }
+               
              
              maxx=max(maxx,lft+rgt+1);
      }

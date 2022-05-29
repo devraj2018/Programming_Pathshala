@@ -1,8 +1,32 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    bool foundA=false,foundB=false;
-    string s1="",s2="";
-    string curr_path="";
+     int la=-1,lb=-1;
+     string ans="";
+     void levelHelper(TreeNode* root,int a,int b,int level=0)
+     {
+         if(!root) return;
+         
+         if(root->val==a){
+             la=level;
+         }
+         if(root->val==b){
+             lb=level;
+         }
+         levelHelper(root->left,a,b,level+1);
+         levelHelper(root->right,a,b,level+1);
+         
+     }
      TreeNode* LCA(TreeNode* root,int a,int b)
         { 
          
@@ -16,48 +40,34 @@ public:
          if(lft&& rgt) return root;
          if(lft) return lft;
          return rgt;
-     }
-    void path1(TreeNode* root,int a )
-     {
-         if(root==NULL) return;
-         if(foundA ) return;
+      }
+    void path(TreeNode* root,int b,string &curr_path)
+    {
+        if(root==NULL) return;
         
-         if(root->val==a) {s1=curr_path; foundA=true;}
-          
-         curr_path+="U";
-         path1(root->left,a );
-         curr_path.pop_back();
-         curr_path+="U";
-         path1(root->right,a);
-         curr_path.pop_back();
-     }
-    void path2(TreeNode* root, int b )
-     {
-         if(root==NULL) return;
-         if( foundB) return;
+        if(root->val==b)
+        {
+            ans+=curr_path;
+        }
         
-         if(root->val==b) {s2=curr_path;foundB=true;}
-        
-         curr_path+="L";
-         path2(root->left,b);
-         curr_path.pop_back();
-         curr_path+="R";
-         path2(root->right,b);
+        curr_path+="L";
+        path(root->left,b,curr_path);
         curr_path.pop_back();
-     }
-    string getDirections(TreeNode* root, int a, int b) {
         
-          TreeNode* lca=LCA(root,a,b);
-          
-          curr_path="";
-          path1(lca,a);
-          curr_path="";
-          path2(lca,b);
-          
-          if(s1.size()==0) return s2;
-          if(s2.size()==0) return s1;
-        
-          return s1+s2;
+         curr_path+="R";
+        path(root->right,b,curr_path);
+        curr_path.pop_back();
+    }
+    
+     string getDirections(TreeNode* root, int startValue, int destValue) {
+        TreeNode* lca=LCA(root,startValue,destValue);
+         levelHelper(lca,startValue,destValue);
+                 
+         for(int i=0;i<la;i++)
+                 ans+="U";
+         string curr="";
+         path(lca,destValue,curr);
+         return ans;
         
     }
 };

@@ -23,6 +23,9 @@ void rearrange(int arr[], int n)    //O(n) Time and O(1)space//
 }
 
 
+
+
+
 int main()
 {
 	int arr[] = { 1, 3, 0, 2 };

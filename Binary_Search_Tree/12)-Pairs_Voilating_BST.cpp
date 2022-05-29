@@ -15,6 +15,7 @@ int pairsViolatingBST(Node *root,int n){
               {
                   if(v[j]>=v[i]) ans++;
               }
+              
         }
          return ans;
 }

@@ -43,6 +43,7 @@ public:
             right[n-i-1]=right[n-i]*nums[n-i];
         }
         
+        
         for(int i=0;i<n;i++) res[i]=left[i]*right[i];
         return res;
     }

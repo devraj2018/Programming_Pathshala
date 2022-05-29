@@ -16,6 +16,7 @@ bool helper(TreeNode* root,int a,int b,int curr_h=0,TreeNode* par=NULL)
        if(ah==bh && par1!=par2) return true;
        return (helper(root->left,a,b,curr_h+1,root) ||helper(root->right,a,b,curr_h+1,root));    
 }
+
     bool isCousins(TreeNode* root, int x, int y) {
          return helper(root,x,y);
     }

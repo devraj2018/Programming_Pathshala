@@ -12,6 +12,8 @@ public:
             while(!s.empty() && s.top()<=nums[i])
                 s.pop();
             
+
+            
             if(!s.empty())
                 res[i]=s.top();
             s.push(nums[i]);

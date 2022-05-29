@@ -21,6 +21,7 @@ public:
                      curr[j]=min(dp[j],dp[j-1])+triangle[i][j];
                  
              }
+             
             
             dp=curr;
        }

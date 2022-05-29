@@ -11,6 +11,7 @@ public:
              lmax[i]=max(lmax[i-1],heights[i]);
              rmax[n-i-1]=max(rmax[n-i],heights[n-i-1]);
             
+           
             
         }
         int ans=0;

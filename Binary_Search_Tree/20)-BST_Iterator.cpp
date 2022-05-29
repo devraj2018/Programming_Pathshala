@@ -21,6 +21,7 @@ public:
         inorder(root);
     }
     
+    
     int next() {
         int ans;
         if(hasNext())

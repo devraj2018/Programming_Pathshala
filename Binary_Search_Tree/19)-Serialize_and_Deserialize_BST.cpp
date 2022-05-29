@@ -14,6 +14,7 @@ public:
         serialHelper(root);
         return s;
      }
+     
     TreeNode* desHelper(string data,int n,int &curr_I)
     {    if(curr_I>=n) return NULL;
          if(data[curr_I]=='+') return NULL;

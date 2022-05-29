@@ -19,6 +19,7 @@ vector<int> Solution::solve(vector<vector<int> > &A) {
          int j=pq.top().second.second;
 
          pq.pop();
+         
         res.push_back(val);
 
           if(j<n-1)

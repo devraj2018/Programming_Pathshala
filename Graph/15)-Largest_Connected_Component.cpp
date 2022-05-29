@@ -22,6 +22,7 @@ void sieve()
 	  	prime.push_back(i);
 	  }
 	
+	
 }
 void dfs(int src, vector<int>adj[],vector<bool>&vis,int &count)
   {

@@ -12,6 +12,7 @@ Node* helper(int post[],int &currI,int minn,int maxx)
          root->left=helper(post,currI,minn,root->data);
     }
     return root;
+    
      
     
 }

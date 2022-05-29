@@ -12,6 +12,8 @@ public:
                  if(s[i]==stk.top().first){
                      stk.push({s[i],stk.top().second+1});
                  }
+
+                 
                  else stk.push({s[i],1});
                  
                  if(stk.top().second==k)

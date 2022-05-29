@@ -16,6 +16,7 @@ class Solution{
     public:
     string findOrder(string words[], int N, int K) {
        
+       
         vector<int>adj[K];
         if(N==1) return words[0];
        

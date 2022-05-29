@@ -18,6 +18,7 @@ public:
                     mp.erase(val1-1);
                     val1--;
                  }
+                 
                while(mp.find(val2+1)!=mp.end())
                  {
                    right++;

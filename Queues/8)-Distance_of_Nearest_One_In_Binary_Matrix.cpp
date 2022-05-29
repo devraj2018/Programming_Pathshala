@@ -39,7 +39,8 @@ class Solution
 	    	          
 	    	          if(newx>=0 && newy>=0 && newx<n && newy<m && distance[x][y]+1 < distance[newx][newy])
 	    	          {
-	    	              distance[newx][newy]= distance[x][y]+1;
+	    	       
+				          distance[newx][newy]= distance[x][y]+1;
 	    	              q.push({newx,newy});
 	    	          }
 	    	      }

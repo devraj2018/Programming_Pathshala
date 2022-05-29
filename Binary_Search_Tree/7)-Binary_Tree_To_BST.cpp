@@ -8,6 +8,8 @@ class Solution{
           retrieve(root->right,v);
        
     }
+
+    
     void Inorder(Node * root,vector<int> &v,int &curr)
     {     if(root==NULL) return;
           Inorder(root->left,v,curr);

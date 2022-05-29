@@ -12,6 +12,7 @@ class Solution{
                if(temp==NULL) return NULL;
                 else
                   {
+                    
                   root=temp;
                   root->right=deleteNode(root->right,k);
                   }

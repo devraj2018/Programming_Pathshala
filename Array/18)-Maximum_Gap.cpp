@@ -20,6 +20,8 @@ public:
             if(X<MINN[bucket_no]) MINN[bucket_no]=X;
             if(X>MAXX[bucket_no]) MAXX[bucket_no]=X;
             
+
+            
             
         }
         

@@ -1,33 +1,37 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-    
-        stack<char>stk;
-        stk.push(s[0]);
+      
         unordered_map<char,int>mp;
-        unordered_set<char> st;
-        st.insert(s[0]);
-        for(int i=0;i<s.length();i++)  mp[s[i]]=i;
+        for(int i=0;i<s.length();i++) mp[s[i]]=i;
         
-        for(int i=1;i<s.length();i++)
-        {   
-            if(st.find(s[i])!=st.end()) continue;
+        vector<bool>visited(26,false);
+        stack<char>stk;
+        
+        for(int i=0;i<s.length();i++)
+        {
+            if(visited[s[i]-'a']) continue;
             
-            while(!stk.empty() && stk.top()>=s[i] && mp[stk.top()]>i) 
-               { st.erase(stk.top());
-                 stk.pop();
-               }
+            while(!stk.empty() && stk.top()>=s[i] && mp[stk.top()]>=i)
+            {
+                char x=stk.top();
+                stk.pop();
+                
+                visited[x-'a']=false;
+            }
             
             stk.push(s[i]);
-            st.insert(s[i]);
+            visited[s[i]-'a']=true;
+                
         }
-        string ans="";
+        string res="";
         while(!stk.empty())
         {
-            char x=stk.top();
-             stk.pop();
-             ans= x+ans;
+            res+=stk.top();
+            stk.pop();
         }
-        return ans;
+        reverse(res.begin(),res.end());
+        return res;
+        
     }
 };

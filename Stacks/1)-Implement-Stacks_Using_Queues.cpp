@@ -30,6 +30,8 @@ public:
         }
         int x=q.front();
         q.pop();
+
+        
         q=temp;
         return x;
         

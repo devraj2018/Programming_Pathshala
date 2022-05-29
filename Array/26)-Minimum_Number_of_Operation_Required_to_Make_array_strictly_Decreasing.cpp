@@ -17,6 +17,7 @@ void solve(){
 
         moves += currMoves;
         mnSoFar = vec[i]; 
+        
     }
   cout << moves << endl;
 }

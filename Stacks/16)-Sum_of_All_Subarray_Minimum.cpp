@@ -13,6 +13,7 @@ public:
           for(int i=n-1;i>=0;i--)
           {
               
+              
                while(!s.empty() && arr[s.top()]>arr[i])
                    s.pop();
               if(s.empty()) nse[i]=n;

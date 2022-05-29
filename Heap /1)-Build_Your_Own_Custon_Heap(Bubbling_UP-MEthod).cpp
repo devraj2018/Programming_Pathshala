@@ -12,6 +12,8 @@ void bubblingUp( vector<int>&arr,int index)
              if(index&1) par=index/2;
              else par=index/2-1;
          }
+
+         
      
   }
 void buildHeap( vector<int>&arr )       // Building from 1st psotion takes nlogn time

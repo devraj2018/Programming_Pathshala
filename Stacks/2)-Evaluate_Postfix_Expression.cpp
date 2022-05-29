@@ -31,6 +31,8 @@ class Solution
                {
                  int a=s.top() ; s.pop();
                  int b=s.top() ; s.pop();
+
+                 
                  s.push(b-a);
                }
        

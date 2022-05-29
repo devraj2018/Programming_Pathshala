@@ -8,6 +8,7 @@ class Solution
     //Function to find distance of nearest 1 in the grid for each cell.
 	vector<vector<int>>nearest(vector<vector<int>>grid)
 	{
+		
 	        int n=grid.size();int m=grid[0].size();
 	    	vector<vector<int>>distance(n,vector<int>(m));
 	    	queue<pair<int,int>>q;

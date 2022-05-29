@@ -17,6 +17,7 @@ class Solution
            int count=1;
            int prev_end=box[0].first;
            
+           
            for(int i=1;i<n;i++)
            {
                 if(prev_end<box[i].second)

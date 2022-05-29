@@ -18,6 +18,7 @@ long long sumOfMaxAndMin(vector<int> &nums, int n, int k) {
          maxx.push_back(i);
           minn.push_back(i);
        }
+       
     
       long long ans=0;
       ans+= nums[maxx.front()] + nums[minn.front()];

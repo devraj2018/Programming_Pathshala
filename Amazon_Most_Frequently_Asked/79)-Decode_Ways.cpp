@@ -15,6 +15,7 @@ public:
            {
               string temp="";
               temp+=s[curr_I];
+           
               temp+=s[curr_I+1];
              
               if(temp>="10" && temp<="26") taking_two=helper(s,curr_I+2,dp);

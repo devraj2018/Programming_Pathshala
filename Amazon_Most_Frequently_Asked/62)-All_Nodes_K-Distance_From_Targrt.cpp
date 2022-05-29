@@ -38,6 +38,7 @@ public:
                    }
                   if(parent[curr] && visited.find(parent[curr])==visited.end())
                    {
+                     
                       visited.insert(parent[curr] );
                       q.push(parent[curr] );
                   }

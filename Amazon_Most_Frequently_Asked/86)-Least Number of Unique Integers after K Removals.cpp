@@ -11,6 +11,7 @@ public:
         }
         sort(temp.begin(),temp.end());
         
+        
         int i=0,n=temp.size();
        for( i=0;i<n;i++)
         {

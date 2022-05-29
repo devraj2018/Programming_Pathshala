@@ -12,5 +12,6 @@ long long int minimumCostToConnectSticks(vector<int> &arr) {
 		pq.push(a+b);
 		
 	 }
+	 
 	return ans;
 }

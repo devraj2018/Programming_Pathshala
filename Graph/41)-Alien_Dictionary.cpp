@@ -21,6 +21,7 @@ class Solution{
                    }
             }
         
+        
         queue<int>q;
 
         for(int i=0;i<26;i++) if(Indegree[i]==0) q.push(i);

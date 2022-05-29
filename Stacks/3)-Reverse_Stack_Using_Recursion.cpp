@@ -15,6 +15,8 @@ void  insert_at_bottom(int x,stack<int> &stack)
 void reverseStack(stack<int> &stack) {
    
     if(stack.empty()) return;
+
+    
     
     int x= stack.top();
     stack.pop();

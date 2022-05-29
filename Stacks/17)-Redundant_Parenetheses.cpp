@@ -12,6 +12,8 @@ int Solution::braces(string A) {
                   }
               else
                   {
+
+                      
                      int count=0;
                      while(!stk.empty() && stk.top()!='(')
                          {

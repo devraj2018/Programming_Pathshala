@@ -21,10 +21,15 @@ public:
          s.push({heights[n-1],n-1});
         for(int i=n-2;i>=0;i--)
         {  
+
+            
              while(!s.empty() && s.top().first>= heights[i])
                  s.pop();
             if(!s.empty())
             {
+
+
+
                 RSI[i]=s.top().second;
             }
             s.push({heights[i],i});

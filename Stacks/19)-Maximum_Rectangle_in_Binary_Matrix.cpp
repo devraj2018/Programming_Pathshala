@@ -13,6 +13,8 @@ public:
               while(!s.empty() && heights[s.top()]>=heights[i])
                   s.pop();
              
+
+             
               if(s.empty()) lse[i]=-1;
               else lse[i]=s.top();
              

@@ -47,8 +47,8 @@ public:
             
             
         } 
-       if(rotten_count!=fresh_count) return -1;
-       return ans;
+       return rotten_count==fresh_count?ans:-1;
+       
        
     }
 };

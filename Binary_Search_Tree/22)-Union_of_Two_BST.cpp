@@ -15,6 +15,7 @@ public:
          inorder(root2,temp);
          int n2=temp.size();
          if(n1==0) return temp;
+         
          if(n2==0) return res;
          res.resize(n1+n2);
      

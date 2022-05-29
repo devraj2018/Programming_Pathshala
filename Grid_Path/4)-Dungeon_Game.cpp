@@ -22,6 +22,7 @@ public:
                      dp[i][j]=minpow;
               }
         }
+        
         return dp[0][0];
     }
 };

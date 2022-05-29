@@ -12,6 +12,7 @@ int main() {
 					    if(arr[mid]==mid+1) low=mid+1;
 						   else high=mid-1;
 			    	}
+					
     cout<<arr[low]<<endl;
     return 0;
 }

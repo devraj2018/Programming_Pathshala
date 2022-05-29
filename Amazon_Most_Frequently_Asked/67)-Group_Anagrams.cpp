@@ -23,6 +23,7 @@ public:
                   v.push_back(strs[temp[i].second]);
                   i++;
                 }
+                
             res.push_back(v);
            }
         return res;

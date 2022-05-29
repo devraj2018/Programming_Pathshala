@@ -22,6 +22,7 @@ public:
              push_stack.pop();
         }
         ans=pop_stack.top();
+        
         pop_stack.pop();
         return ans;
      }

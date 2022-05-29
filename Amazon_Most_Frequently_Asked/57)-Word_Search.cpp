@@ -3,31 +3,39 @@ public:
     bool ans=false;
     int dx[4]={-1,1,0,0};
     int dy[4]={0,0,1,-1};
-    void dfs(vector<vector<char>>& board, string word,int curr_I,int x,int y,int &row,int &col)
+   
+    void dfs(vector<vector<char>>& board,string word,int curr_I,int x,int y,int row,int col)
     {
-         if(ans) return;     // To avoid further recursive calls
-         if(curr_I== word.size()-1)
-         {
+         if(ans) return;
+        
+         if(curr_I==word.length()-1){
              ans=true;
              return;
          }
         
-         char chr=board[x][y];
+         char backtrack=board[x][y];
          board[x][y]='#';
         
-         for(int i=0;i<4;i++)
-         {
-             int newx=x+dx[i];
-             int newy=y+dy[i];
-             
-             if(newx>=0 && newy>=0 && newx<row && newy<col && board[newx][newy]==word[curr_I+1])
-             {
-                 dfs(board,word,curr_I+1,newx,newy,row,col);
-             }
-          }
+        curr_I++;
         
-        board[x][y]=chr;
-     }
+        for(int i=0;i<4;i++)
+        {
+            int xx=x+dx[i];
+            int yy=y+dy[i];
+            
+            if(xx>=0 && yy>=0 && xx<row && yy<col && board[xx][yy]==word[curr_I])
+                  dfs(board,word,curr_I,xx,yy,row,col);
+            
+            
+        }
+        
+        
+      board[x][y]=backtrack;
+        
+         
+        
+    }
+    
     bool exist(vector<vector<char>>& board, string word) {
         int row=board.size();
         int col=board[0].size();

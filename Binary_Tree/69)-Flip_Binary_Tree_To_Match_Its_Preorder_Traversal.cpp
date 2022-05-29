@@ -1,31 +1,53 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    
-    vector<int>res;
-    
-    bool helper(TreeNode* root, vector<int>& voyage,int &curr_I)
+    bool ans;
+    void helper(TreeNode* root,vector<int>&voyage,int &curr_I,vector<int>&res)
     {
-               if(root==NULL) return true;  
+         if(root==NULL || ans==false) return;
+         if(curr_I==voyage.size()) return;
         
-               if(voyage[curr_I]!=root->val) return false;
+         if(voyage[curr_I]!=root->val) {
+             ans=false;
+             return;
+         }
         
-                curr_I++;
-              
-               if(root->left && root->left->val!=voyage[curr_I])
-                  {
-                   res.push_back(root->val);
-                   return helper(root->right,voyage,curr_I) && helper(root->left,voyage,curr_I);
-                   
-                  }
-              else
-                 return helper(root->left,voyage,curr_I) && helper(root->right,voyage,curr_I);
+         curr_I++;
+        
+         if(root->left && voyage[curr_I]!=root->left->val)
+         {
+             res.push_back(root->val);
+             helper(root->right,voyage,curr_I,res);
+             helper(root->left,voyage,curr_I,res);
+         }
+         else
+          {    helper(root->left,voyage,curr_I,res);
+               helper(root->right,voyage,curr_I,res);
+          }
          
-     }
-    
+      }
     vector<int> flipMatchVoyage(TreeNode* root, vector<int>& voyage) {
-      
+        
+        vector<int>res;
         int curr_I=0;
-        if(!helper(root,voyage,curr_I)) return {-1};
-        return res;
+        ans=true;
+        helper(root,voyage,curr_I,res);
+       
+       
+        if(ans) return res;
+        
+        return {-1};
+        
+        
     }
 };

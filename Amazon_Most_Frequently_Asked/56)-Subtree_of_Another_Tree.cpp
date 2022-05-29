@@ -13,6 +13,8 @@ public:
     }
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
       
+
+      
      vector<int>arr,subarr;
      preorder(root,arr);
      preorder(subRoot,subarr);

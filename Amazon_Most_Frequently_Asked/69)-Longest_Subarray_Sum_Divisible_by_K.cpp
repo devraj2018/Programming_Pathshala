@@ -12,6 +12,7 @@ public:
             
             int rem= (k+currsum%k)%k;
             
+            
             if(mp.find(rem)!=mp.end())
             {
                 ans=max(ans,i-mp[rem]);

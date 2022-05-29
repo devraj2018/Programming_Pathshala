@@ -20,6 +20,7 @@ public:
             
             q.pop();
             
+            
             if(curr==30) return moves;
             
             for(int i=1;i<=6;i++)

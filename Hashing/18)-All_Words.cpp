@@ -17,6 +17,7 @@ public:
             {   string ss=s.substr(j,l);
                 if(temp.find(ss)==temp.end() || temp[ss]==0)
                 {
+                    
                     flag=false;
                     break;
                 }

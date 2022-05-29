@@ -15,6 +15,7 @@ class Solution
              tail->right=root;
              root->left=tail;
              tail=tail->right;
+             
              }
       
            helper(root->right,head,tail);

@@ -1,39 +1,34 @@
-class Solution
-{
-    public:
-  
-    vector<int> bottomView(Node *root)
-    {
-       vector<int>res;
-       if(root==NULL) return res;
+class Solution {
+  public:
+    vector <int> bottomView(Node *root) {
+       int minn=INT_MAX;
+        int maxx=INT_MIN;
         
-       queue<pair<Node*,int>>q;
-       unordered_map<int,int>mp;
-  
-       int maxx=INT_MIN,minn=INT_MAX;    // To get rid of map and used unorderd_map  
+        unordered_map<int,int>mp;
+        vector<int>res;
+        if(root==NULL) return res;
+        queue<pair<Node*,int>>q;
         q.push({root,0});
+        
         while(!q.empty())
-        {   int size=q.size();            
+        {
+            Node* curr=q.front().first;
+            int vh=q.front().second;
+            q.pop();
+            minn=min(minn,vh);
+                  maxx=max(maxx,vh);
             
-             for(int i=1;i<=size;i++)
-               {
-               Node* curr=q.front().first;
-               int hd=q.front().second;
-               q.pop();
-               maxx=max(maxx,hd); minn=min(minn,hd);
-               
-               mp[hd]=curr->data;
-
-               if(curr->left) q.push({curr->left,hd-1});
-               if(curr->right) q.push({curr->right,hd+1});
-               
-              }
+               mp[vh]=curr->data;
             
-         }
-        
-        for(int i=minn;i<=maxx;i++)  res.push_back(mp[i]);
-     return res;
-        
+            if(curr->left) q.push({curr->left,vh-1});
+            if(curr->right) q.push({curr->right,vh+1});
+        }
+    
+      
+      for(int i=minn;i<=maxx;i++)
+        {
+            res.push_back(mp[i]);
+        }
+        return res;
     }
-
 };

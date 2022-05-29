@@ -1,3 +1,25 @@
+
+
+class Solution {         // Approach 2
+public:
+     int minDepth(TreeNode* root) {
+         if(root==NULL) return 0;
+        
+         int lh=minDepth(root->left);
+         int rh=minDepth(root->right);
+        
+          
+        if(root && root->left && root->right)
+             return 1+min(lh,rh);
+        
+        if(root&& root->left)
+            return 1+lh;
+        
+        return 1+rh;
+       
+    }
+};
+
 class Solution {
 public:
     int ans=INT_MAX;
@@ -16,26 +38,6 @@ public:
         if(ans==INT_MAX)
             return 0;
         return ans;
-       
-    }
-};
-
-class Solution {         // Approach 2
-public:
-     int minDepth(TreeNode* root) {
-         if(root==NULL) return 0;
-        
-         int lh=minDepth(root->left);
-         int rh=minDepth(root->right);
-        
-          
-        if(root && root->left && root->right)
-             return 1+min(lh,rh);
-        
-        if(root&& root->left)
-            return 1+lh;
-        
-        return 1+rh;
        
     }
 };

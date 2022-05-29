@@ -17,6 +17,7 @@ public:
     }
 };
 
+
 /*    Check for Every Pair
  int area = 0;
     for (int i = 0; i < len; i++) {

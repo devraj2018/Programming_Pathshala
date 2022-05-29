@@ -13,6 +13,7 @@ public:
         queue<pair<int,int>>q;
         q.push({sr,sc});
         
+        
         while(!q.empty())
         {
              int x=q.front().first;

@@ -19,5 +19,6 @@ BinaryTreeNode<char> * helper(string &str,int &curr_I){
 BinaryTreeNode<char> * toBinaryTree(string &str){
     int curr_I=0;
     
+    
     return helper(str,curr_I);
 }

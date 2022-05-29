@@ -1,5 +1,5 @@
 class Solution{
-public:	
+public:	//Hello
 	int longSubarrWthSumDivByK(int nums[], int n, int k)
 	{
 	    int ans=0;
@@ -8,6 +8,8 @@ public:
         mp[0]=-1;
         for(int i=0;i<n;i++)
         { 
+
+            
             currsum+=nums[i];
             
             int rem= (k+currsum%k)%k;
@@ -18,6 +20,9 @@ public:
             }
             else
                mp[rem]=i;
+
+
+
               
         }
         return ans;

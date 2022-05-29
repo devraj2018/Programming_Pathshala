@@ -17,6 +17,7 @@ void serialize(Node *root,vector<int> &A)
     index++;
     if(val==-1)
     return NULL;
+    
     Node*temp=new Node(val);
     temp->left=de(A,index);
     temp->right=de(A,index);

@@ -16,6 +16,7 @@ class Solution
          
          while(i<n1 && j<n2)
          {
+             
               if(first[i]<=second[j]) {
                   arr[k]=first[i];
                   k++;i++;

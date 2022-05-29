@@ -13,6 +13,7 @@ class Solution
                        while(i<n1 && A[i]==B[j]) i++;
                        j++;k++;
                     }
+                    
                     else if(A[i]< B[j] || A[i]<C[k]) i++;
                     else if(B[j]< C[k] || B[j]<A[i]) j++;
                     else if(C[k]< B[j] || C[k]<A[i]) k++;

@@ -17,6 +17,8 @@ public:
          vector<vector<int>>res;
          for(int i=0;i<k;i++)
             {
+
+               
               res.push_back(pq.top());
               pq.pop();
              

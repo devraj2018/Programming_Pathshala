@@ -66,6 +66,8 @@ int main()
       
       vector<int>arr{3,4,0,1,2,7,8,9,5,6};
       n=10;
+
+      
       buildHeap(arr);
       cout<<getMax(arr)<<endl;
      

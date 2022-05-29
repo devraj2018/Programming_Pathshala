@@ -28,6 +28,7 @@ public:
                 moves++;
                 target-=1;
             }
+            
         }
         
         return moves +(target-1);

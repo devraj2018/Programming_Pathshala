@@ -13,6 +13,7 @@ Node* helper(int pre[],int &currI,int minn,int maxx,int size)
            }
        return newroot;
            
+           
   }
 Node* post_order(int pre[], int size)
 {

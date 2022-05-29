@@ -20,6 +20,7 @@ long long findwithpqr(long long arr[],long long n,long long p,long long q,long l
    }
    return ans1;
 
+
 }
 
 

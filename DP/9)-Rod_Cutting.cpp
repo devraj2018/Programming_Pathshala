@@ -16,6 +16,7 @@ class Solution{
     int cutRod(int price[], int n) {
         dp.resize(n+1,-1);
         return helper(price,n);
+        
     }
 };
 //  ---------------   Bottome-Up- DP-------------------//

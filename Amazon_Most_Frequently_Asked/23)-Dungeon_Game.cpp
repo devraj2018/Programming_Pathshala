@@ -21,6 +21,7 @@ public:
                  else
                      dp[i][j]=minpow;
               }
+              
         }
         return dp[0][0];
     }

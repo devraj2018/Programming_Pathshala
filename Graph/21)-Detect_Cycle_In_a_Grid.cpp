@@ -25,6 +25,7 @@ public:
                 return true;
         }
         visited[x][y]=true;
+        
          
         for(int i=0;i<4;i++)
         {  int new_x=x+dx[i];

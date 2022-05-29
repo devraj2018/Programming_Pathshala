@@ -15,6 +15,7 @@ void helper(BinaryTreeNode<int>* root,int a,int b,int curr_h,BinaryTreeNode<int>
        {
         hb=curr_h;
         parb=par;
+        
       }
     if(para && parb && ha==hb && para!=parb)
       {

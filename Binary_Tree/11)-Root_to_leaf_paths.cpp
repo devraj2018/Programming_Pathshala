@@ -17,6 +17,7 @@ class Solution {
           }
         Path(root->left,curr);
         Path(root->right,curr);
+        
   }
     vector<string> binaryTreePaths(TreeNode* root) {
         string curr="";

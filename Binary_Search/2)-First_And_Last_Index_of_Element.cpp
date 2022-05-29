@@ -8,6 +8,7 @@ int main() {
 	   	 int t,target;cin>>t;
 		 while(t--)
 		   { 
+			   
 				 cin>>target;
 			     int f=-1;
 				 int mid,low=0,high=n-1;

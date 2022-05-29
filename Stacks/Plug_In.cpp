@@ -18,12 +18,16 @@ int main()
            continue;
            }
        
+
+       
       s.push(str[i]); 
       int count=0;
       while(!s.empty() && s.top()==str[i])
         {s.pop();
          count++;
         }
+
+
         if(count==1) s.push(str[i]);
         i++;
   }

@@ -19,6 +19,7 @@ public:
                 ans+= rmax-height[end--];
             
             
+            
         }
         
         return ans;

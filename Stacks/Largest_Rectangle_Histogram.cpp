@@ -15,6 +15,8 @@ public:
             s.push({heights[i],i});
        }
     }
+
+    
     void Next_Smaller_Ele(vector<int>& heights,vector<int>&RSI,int n)
     {
         stack<pair<int,int>>s;

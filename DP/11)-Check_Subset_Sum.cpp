@@ -15,6 +15,7 @@ public:
                   
                   if(j-arr[i-1]>=0) dp[i][j] =dp[i][j] | dp[i-1][j-arr[i-1]];
                }
+               
           }
          return dp[N][sum];
      }

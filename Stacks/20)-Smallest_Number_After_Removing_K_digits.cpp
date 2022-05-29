@@ -12,6 +12,8 @@ public:
                  s.pop();
                  k--;
              }
+
+             
             s.push(num[i]);
             if(s.size()==1 && s.top()=='0') s.pop();    // Just to remove Leading Zeros
         }

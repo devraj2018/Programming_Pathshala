@@ -30,6 +30,7 @@ class Solution{
 	           
 	           if(arr[i]==temp) return false;
 	      }
+		  
 	    return true;
  	}
 		 

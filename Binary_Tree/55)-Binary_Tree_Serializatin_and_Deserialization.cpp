@@ -15,6 +15,7 @@ public:
        ser_helper(root);
         return s;
     }
+    
 
     // Decodes your encoded data to tree.
     TreeNode* des_helper(string data,int &curr_I)

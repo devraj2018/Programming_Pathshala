@@ -1,52 +1,46 @@
 class Solution{
     public:
-     int size;
-    vector<string>res;
-    vector<vector<bool>>vis;
     int dx[4]={-1,1,0,0};
-    int dy[4]={0,0,-1,1};
-    char dir[4]={'U','D','L','R'};
+    int dy[4]={0,0,1,-1};
+    char dir[4]={'U','D','R','L'};
     
-    void dfs(vector<vector<int>> &grid,string curr_path,int x,int y)
-    {
+     void dfs(int x,int y,vector<vector<int>> &m, int n,string curr_path,vector<string>&res)
+          {
         
-         if(x==size-1 && y==size-1)
-         {
-              res.push_back(curr_path);
-              return;
-             
-         }
-         vis[x][y]=true;
-         
-         for(int i=0;i<4;i++)
-         {
-              int new_x=x+dx[i];
-              int new_y=y+dy[i];
-              
-              char d=dir[i];
-              
-              if(new_x>=0 && new_y>=0 && new_x<size && new_y<size && vis[new_x][new_y]==false && grid[new_x][new_y]==1 )
+             if(x==n-1 && y==n-1)
                {
-                   curr_path.push_back(d);
-                   dfs(grid,curr_path,new_x,new_y);
-                   
-                   curr_path.pop_back();
+                   res.push_back(curr_path);
+                   return;
                }
-             
-         }
-         vis[x][y]=false;
+          
+          
+             m[x][y]=0;  // Mark visited
+          
+            for(int i=0;i<4;i++)
+               {
+                int xx=x+dx[i];
+                int yy=y+dy[i];
+              
+                char direction=dir[i];
+              
+                 if(xx>=0 && yy>=0 && xx<n && yy<n && m[xx][yy]==1)
+                  {
+                    dfs(xx,yy,m,n,curr_path+direction,res);
+                  }
+              
+               }
         
-        
-        
+         m[x][y]=1;  // Backtrack
+   
     }
     vector<string> findPath(vector<vector<int>> &m, int n) {
-      string curr_path="";
-      vis.resize(n,vector<bool>(n,false));
-      size=n;
-      dfs(m,curr_path,0,0);
-      
-      if(m[0][0]==0) return {};
-      return res;
-        
+       
+       vector<string>res;
+       string curr_path="";
+       
+       if(m[0][0]==0) return res;
+       
+        dfs(0,0,m,n,curr_path,res);
+        return res;
     }
 };

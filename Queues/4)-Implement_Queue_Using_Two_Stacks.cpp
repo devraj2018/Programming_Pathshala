@@ -32,6 +32,7 @@ class MyQueue {
         return show.peek();
     }
     
+    
     /** Returns whether the queue is empty. */
     public boolean empty() {
         return main.isEmpty() && show.isEmpty();

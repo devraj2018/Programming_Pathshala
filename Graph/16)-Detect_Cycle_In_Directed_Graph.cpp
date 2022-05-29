@@ -23,6 +23,7 @@ class Solution {
         vector<bool> vis(V,false);
         vector<bool> ancestor(V,false);
         
+        
         for(int i=0;i<V;i++)
         {   if(!vis[i])
               {

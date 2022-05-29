@@ -18,6 +18,7 @@ public:
               for(int i=up;i<=down;i++)
                   res.push_back(matrix[i][right]);
             
+            
               right--;
               if(up>down || left>right)
                 continue;

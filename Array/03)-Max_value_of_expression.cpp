@@ -22,6 +22,7 @@ void find(int arr[],int& ans,int n)  //  If we need to find this max(Arr[i]+Arr[
    }
 }
 
+
 // We need to find max value of p*Arr[i]+q*Arr[j]+r*Arr[k],and constraint  i<j<k   //
 
 void findwithpqr(int arr[],int& ans1,int n,int p,int q,int r)  //  If we need to find this max(p*Arr[i]+q*Arr[j]+r*Arr[k])

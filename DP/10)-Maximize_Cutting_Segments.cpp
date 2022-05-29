@@ -15,6 +15,7 @@ class Solution
            if(maxx==INT_MIN) return dp[n]= INT_MIN;
            
            return dp[n]=1+maxx;
+           
         
     }
     int maximizeTheCuts(int n, int x, int y, int z)

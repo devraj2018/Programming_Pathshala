@@ -12,6 +12,8 @@ public:
     void pop() {
         if(s.top()==minn.top())  minn.pop();
         s.pop();
+
+        
      }
     
     int top() {

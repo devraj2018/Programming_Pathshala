@@ -23,6 +23,7 @@ public:
              int mid= (low+high)>>1;
              int realmid= (mid+rotation)%n;
             
+            
              if(A[realmid]==target) return realmid;
              if(A[realmid]<target)
              {

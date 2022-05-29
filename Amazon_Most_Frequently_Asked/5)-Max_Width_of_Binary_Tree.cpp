@@ -18,6 +18,7 @@ public:
         q.push({root,0});
         while(!q.empty())
         {   
+          
              long long int first=0,last=0;
             int size=q.size();
             long long int minn=q.front().second;

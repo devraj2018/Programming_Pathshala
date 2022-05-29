@@ -8,7 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-// ---  [Brute_force] Merge first with second,then ans of that with third ,then answer of that with fouth,and so on....................     [If each list has n size and we have k lists,Then Complexity will be] O(n*k*k) //
+// ---  [Brute_force] Merge first with second,then ans of that with third ,then answer of that with fouth,and so on.................... 
+ //   [If each list has n size and we have k lists,Then Complexity will be] O(n*k*k) 
 
 /*class Solution {  // This is Most Basic Approach
 public:
@@ -180,6 +181,7 @@ public:
         if (result->next) {
             q.push(result->next);
         }
+
 
         ListNode* tail = result;            
         while (!q.empty()) {

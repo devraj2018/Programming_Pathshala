@@ -1,89 +1,51 @@
-#include <bits/stdc++.h>
-using namespace std;
+vector<int> shortestPath( vector<pair<int,int>> edges , int n , int m, int s , int t){
+	
+	  vector<int>adj[n+1];
+	
+	for(int i=0;i<m;i++)
+	{
+		  adj[edges[i].first].push_back(edges[i].second);
+		  adj[edges[i].second].push_back(edges[i].first);
+	}
+	
+	queue<int>q;
+	q.push(s);
+	vector<int>visited(n+1,0);
+	visited[s]=1;
+	vector<int>par(n+1);
+	par[s]=-1;
+	
+	while(!q.empty())
+	{
+		int curr=q.front();
+		q.pop();
+		
+		if(curr==t) break;
+		
+		
+		for(auto child:adj[curr])
+		{
+			if(visited[child]==0)
+			{
+				visited[child]=1;
+				q.push(child);
+				par[child]=curr;
+				
+			}
+		}
+		  
+	}
+	
+	vector<int>res;
+	
+	while(t!=-1)
+	{
+		res.push_back(t);
+		t=par[t];
+	}
+	reverse(res.begin(),res.end());
+	return res;
+	
 
-class Graph {
-    public:
-    int size;
-        vector<int> *adj;
-        Graph(int n) {
-            size=n;
-            adj=new vector<int>[n+1];
-        }
-    
-        void add_edge(int u, int v) {
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-    
-        vector<int> shortest_reach(int start) {
-            vector<int>res(size,-1);
-            bool first=true;
-            vector<bool> vis(size+1,false);
-            queue<pair<int,int>>q;
-            q.push({start,0});
-            vis[start]=true;
-            while(!q.empty())
-            {
-                 int curr_node=q.front().first;
-                 int curr_dis=q.front().second;
-                 q.pop();
-                 
-                 if(!first)
-                 {
-                   res[curr_node]=curr_dis;
-                 }
-                 first=false;
-                 
-                 for(auto x:adj[curr_node])
-                 {
-                      if(!vis[x])
-                      {
-                          vis[x]=true;
-                          q.push({x,curr_dis+6});
-                      }
-                      
-                 }
-            }
-            return res;
-             
-            
-            
-        }
-    
-};
-
-int main() {
-    int queries;
-    cin >> queries;
-        
-    for (int t = 0; t < queries; t++) {
-      
-		int n, m;
-        cin >> n;
-        // Create a graph of size n where each edge weight is 6: 
-        Graph graph(n);
-        cin >> m;
-        // read and set edges
-        for (int i = 0; i < m; i++) {
-            int u, v;
-            cin >> u >> v;
-            u--, v--;
-            // add each edge to the graph
-            graph.add_edge(u, v);
-        }
-		int startId;
-        cin >> startId;
-        startId--;
-        // Find shortest reach from node s
-        vector<int> distances = graph.shortest_reach(startId);
-
-        for (int i = 0; i < distances.size(); i++) {
-            if (i != startId) {
-                cout << distances[i] << " ";
-            }
-        }
-        cout << endl;
-    }
-    
-    return 0;
+	
 }

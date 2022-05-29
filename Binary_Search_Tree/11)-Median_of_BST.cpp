@@ -9,6 +9,7 @@ void helper(Node* root,int target,bool iseven,int &curr_c,float &ans)
 {    if(root==NULL) return;
      helper(root->left,target,iseven,curr_c,ans);
      curr_c++;
+     
      if(iseven &&((curr_c==target) || (curr_c==target+1))) ans+= root->data;
      else if(!iseven && curr_c==target+1) ans=root->data;
      helper(root->right,target,iseven,curr_c,ans);

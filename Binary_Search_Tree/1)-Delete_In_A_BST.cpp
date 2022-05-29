@@ -11,6 +11,7 @@ public:
              if(root->left==NULL && root->right==NULL) return NULL;
               else if(root->left && root->right)
               {  
+                  
                    TreeNode* temp=root->right;
                     while(temp->left) temp=temp->left;
                    

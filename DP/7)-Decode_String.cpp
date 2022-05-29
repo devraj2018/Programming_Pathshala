@@ -15,6 +15,7 @@ public:
                 one=helper(s,curr_I+1);
             else
               {    
+                  
               one=helper(s,curr_I+1);
               two=helper(s,curr_I+2);
               }

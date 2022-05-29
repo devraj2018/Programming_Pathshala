@@ -36,6 +36,7 @@ class Solution{
            if(s1[i]!=s1[i+1])          // If two adjacent char(l or r) are different means we took turn;
              count++;
       }
+      
       if(count==0) return -1;
       return count;
   

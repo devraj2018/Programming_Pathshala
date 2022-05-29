@@ -15,6 +15,7 @@ public:
             for(int i=up;i<=down;i++) res[i][right]=++counter;
             right--;
             
+            
             if(left>right || up>down) break;
             for(int j=right;j>=left;j--)  res[down][j]=++counter;
             down--;

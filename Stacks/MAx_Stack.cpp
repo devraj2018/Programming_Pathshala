@@ -29,6 +29,8 @@ vector<int> getMax(vector<string> operations) {
                string temp= operations[i].substr(2);
                int val=stoi(temp);
                
+
+               
                if(maxx.empty() || maxx.top()<=val)
                maxx.push(val);
                s.push(val);

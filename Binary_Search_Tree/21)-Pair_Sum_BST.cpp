@@ -11,6 +11,7 @@ class Solution{
           { ans=true;
                return;
           }
+          
          s.insert(root->data);
        helper(root->right,target);
           

@@ -12,6 +12,7 @@ public:
                   
                   if(st.empty()) return false;
                   
+                  
                   if(st.top()== '(' && s[i]==')')
                       st.pop();
                   else if(st.top()== '{' && s[i]=='}')

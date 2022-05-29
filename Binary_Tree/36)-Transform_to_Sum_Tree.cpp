@@ -9,6 +9,7 @@ class Solution {
       int root_val=root->data;
       root->data=lsum+rsum;
       
+      
       return lsum+rsum+root_val;    
     }
     void toSumTree(Node *node)

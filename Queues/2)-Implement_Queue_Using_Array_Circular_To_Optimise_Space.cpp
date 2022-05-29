@@ -17,6 +17,7 @@ public:
                  if((rear+1)%50000 == fr ) return;
                  if(isEmpty())
                      {
+                       
                         arr[0]=data;
                         fr=0;rear=0;
                      }

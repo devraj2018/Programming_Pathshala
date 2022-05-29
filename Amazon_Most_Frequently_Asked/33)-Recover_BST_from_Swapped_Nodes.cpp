@@ -22,6 +22,7 @@ public:
         
         if(res.size()==1)
         {
+            
              swap(res[0].first->val,res[0].second->val);
              return;
         }

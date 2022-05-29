@@ -43,6 +43,8 @@ int MinHeap::extractMin()
 void MinHeap::deleteKey(int i)
 {
     if(i>=heap_size) return;
+
+    
     
     decreaseKey(i,INT_MIN);
     swap(harr[0],harr[heap_size-1]);

@@ -16,6 +16,8 @@ using namespace std;
 #include <iostream>
 using namespace std;
 
+
+
 class MyStack{
 	
 	struct Node{
@@ -124,12 +126,18 @@ class MyStack{
        	     	   	   temp->prev->next=middle;
        	     	   	   middle->prev=temp->prev;
        	     	   	
+						   
        	     	   }
+
+
+
        	     	  
        	     	
        	       delete temp;	
        	     }
        	     
+
+
        	     curr_size--;
        	   
        	    

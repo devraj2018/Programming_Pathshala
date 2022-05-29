@@ -17,6 +17,7 @@ int main()
   {
       for(int j=0;j<col;j++)
       {
+          
           sum+= (i+1)*(j+1)*(row-i)*(col-j);
       }
   }

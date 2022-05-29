@@ -19,6 +19,7 @@ public:
     }
     void solve(vector<vector<char>>& grid) {
         
+        
          n=grid.size();
          m=grid[0].size();
          for(int i=0;i<n;i++)

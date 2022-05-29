@@ -15,6 +15,7 @@ public:
             
              res.push_back(mat[curr_row][curr_col]);
             
+            
              if(curr_row+1< m && curr_col==0)  // insert the element below, if in first column
                  q.push({curr_row+1,0});
              

@@ -18,6 +18,7 @@ public:
         
     }
     
+    
     int sumRegion(int row1, int col1, int row2, int col2) {
         
         return pre[row2+1][col2+1]-pre[row1][col2+1]-pre[row2+1][col1]+pre[row1][col1];

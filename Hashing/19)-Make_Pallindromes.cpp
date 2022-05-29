@@ -77,6 +77,7 @@ public:
         }
       return true;  
      }
+     
     vector<vector<int>> palindromePairs(vector<string>& words) {
         int n=words.size();
          vector<vector<int>>res;

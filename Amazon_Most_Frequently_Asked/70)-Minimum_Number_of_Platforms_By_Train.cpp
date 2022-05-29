@@ -13,6 +13,7 @@ class Solution{
                  temp[dep[i]+1]--;
              }
            
+           
            int maxx=0;
            int currsum=0;
            for(int i=0;i<=2400;i++)

@@ -12,5 +12,7 @@ public:
          for(int i=0;i<row;i++)               //Then reverse every row ,You will get your rotated image
              reverse(matrix[i].begin(),matrix[i].end());
         
+
+        
     }
 };

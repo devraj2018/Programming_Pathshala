@@ -15,6 +15,8 @@ public:
                  }
                else
                 {
+
+                   
                    TreeNode* predecessor=curr->left;
                   while( predecessor->right!=NULL &&  predecessor->right!=curr)
                      {

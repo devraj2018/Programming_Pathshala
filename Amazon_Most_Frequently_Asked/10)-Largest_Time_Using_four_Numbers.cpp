@@ -1,81 +1,28 @@
 class Solution {
 public:
     string largestTimeFromDigits(vector<int>& arr) {
-        
-        unordered_map<int,int>mp;
-         
-        for(auto x:arr) mp[x]++;
         string ans="";
-        
-        bool flag=false;
-        for(int i=2;i>=0;i--)
-        {  if(mp.find(i)!=mp.end() && mp[i]!=0)
-             {   ans+= to_string(i);
-                 flag=true;
-                 mp[i]--;
-                 break;
-             }
-         }
-        // cout<<"11"<<endl;
-        if(flag==false) return "";
-        flag=false;
-        if(ans[0]=='2')
+        for(int i=0;i<4;i++)
         {
-            for(int i=3;i>=0;i--)
+            for(int j=0;j<4;j++)
             {
-                if(mp.find(i)!=mp.end() && mp[i]!=0)
-                 {   ans+= to_string(i);
-                     flag=true;
-                     mp[i]--;
-                     break;
-                  }
+                for(int k=0;k<4;k++)
+                  {
+                    int l= 6-(i+j+k);
+                    if(i==j || i==k || j==k) continue;
+                    
+                    string hour= to_string(arr[i])+ to_string(arr[j]);
+                    string minute= to_string(arr[k])+ to_string(arr[l]);
+                    string time= hour+":"+minute;
+                    
+                    if(hour>="00" && hour<="23" && minute>="00" && minute<="59" && time>ans)
+                    { ans=time;
+                     }
+                     
+                }
             }
         }
-        else
-        {
-             for(int i=9;i>=0;i--)
-            {
-                if(mp.find(i)!=mp.end() && mp[i]!=0)
-                 {   ans+= to_string(i);
-                     flag=true;
-                     mp[i]--;
-                     break;
-                  }
-            }
-        }
-        // cout<<"11"<<endl;
-        if(flag==false) return "";
-        
-        ans+=":";
-        flag=false;
-         for(int i=5;i>=0;i--)
-            {
-                if(mp.find(i)!=mp.end() && mp[i]!=0)
-                 {   ans+= to_string(i);
-                     flag=true;
-                     mp[i]--;
-                     break;
-                  }
-            }
-        // cout<<"11"<<endl;
-        //     cout<<ans<<endl;
-          if(flag==false) return "";
-         flag=false;
-         for(int i=9;i>=0;i--)
-            {
-                if(mp.find(i)!=mp.end() && mp[i]!=0)
-                 {   ans+= to_string(i);
-                     flag=true;
-                     mp[i]--;
-                     break;
-                  }
-            }
-        // cout<<"11"<<endl;
-        // cout<<ans<<endl;
-        if(flag==false) return "";
-        
         return ans;
         
-     
     }
 };

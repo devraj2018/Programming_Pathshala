@@ -17,6 +17,7 @@ public:
         if(!root->left && !root->right)
             return true;
         
+        
         return Symmetric(root->left,root->right);
         
     }

@@ -17,4 +17,5 @@ bool IsFoldable(Node* root)
    isSame(root->left,root->right,ans);
    return ans;
    
+   
 }

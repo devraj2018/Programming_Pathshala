@@ -19,6 +19,8 @@ public:
                     successor=successor->left;
                 }
                 
+
+                
                 if(successor->left==NULL) // Means we haven't traversed right part yet
                 {
                     res.push_back(root->val);

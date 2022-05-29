@@ -8,8 +8,12 @@ class Solution
         for(int i=1;i<n;i++)
         {   while(!s.empty() && s.top().first<=price[i]) s.pop();
                 
+
+
              if(!s.empty()) res[i]=i-s.top().second;
              else res[i]=i+1;
+            
+
             
              s.push({price[i],i});
        }

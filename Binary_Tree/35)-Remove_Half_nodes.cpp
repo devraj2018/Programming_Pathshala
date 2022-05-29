@@ -11,6 +11,7 @@
      }
      else if(root->left)
        return RemoveHalfNodes(root->left);
+       
     return RemoveHalfNodes(root->right);
      
      

@@ -55,6 +55,7 @@ public:
               while(j<window &&k<array.size() && array[k]==subarray[j])
               {
                   k++;j++;
+                  
               }
              if(j==window) return true;
             

@@ -7,6 +7,8 @@ struct data{
     //      maxx=mx;minn=mn;size=sz;isBst=is;
     //  }
     
+
+    
 };
 class Solution{
     public:

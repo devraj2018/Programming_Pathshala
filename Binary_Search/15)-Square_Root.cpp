@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int mySqrt(int x) {
+     int mySqrt(int x) {
         
         long long mid,low=0,high=(long long)x;
         long long ans;
@@ -21,6 +21,4 @@ public:
             
         }
         return (int)ans;
-        
-    }
 };

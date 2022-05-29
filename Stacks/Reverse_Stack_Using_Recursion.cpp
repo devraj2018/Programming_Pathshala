@@ -9,6 +9,8 @@ void insert_At_Bottom(stack<int>& s,int x)
     insert_At_Bottom(s,x);
     s.push(y);
 }
+
+
 void reverseStack(stack<int> &s) {
     if(s.empty()) return;
     int x=s.top();

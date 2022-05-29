@@ -15,6 +15,7 @@ vector<int> sortByFrequency(vector<int>& nums){
           }
     
        vector<pair<int,int>> temp;
+       
       
        for(auto x:mp) temp.push_back({x.second,firstindex[x.first]});
        

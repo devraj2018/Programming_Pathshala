@@ -13,4 +13,5 @@ int Solution::adjacent(vector<vector<int> > &A) {
       return dp[n-1];
 
 
+
 }

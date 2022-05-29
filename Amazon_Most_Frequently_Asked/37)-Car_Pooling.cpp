@@ -1,22 +1,19 @@
 class Solution {
 public:
     bool carPooling(vector<vector<int>>& trips, int capacity) {
+        vector<int>arr(1001,0);
         
-        vector<int>line(1001,0);
-        
-        for(auto t:trips)
+        for(int i=0;i<trips.size();i++)
         {
-            line[t[1]]+=t[0];
-            line[t[2]]-=t[0];
+            arr[trips[i][1]]+=trips[i][0];
+            arr[trips[i][2]]-=trips[i][0];
         }
+        
         for(int i=0;i<=1000;i++)
         {
-             capacity-= line[i];
-            
-             if(capacity<0) return false;
-            
-         }
+              capacity-= arr[i];
+              if(capacity<0) return false;
+        }
         return true;
-        
     }
 };

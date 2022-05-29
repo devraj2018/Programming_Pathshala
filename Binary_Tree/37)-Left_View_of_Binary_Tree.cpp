@@ -20,6 +20,7 @@ vector<int> leftView(Node *root)         // Level order -->O(n)space Queue
        
         queue<Node*> q;
         q.push(root);
+        
         while(!q.empty())
         {  
             int size=q.size();

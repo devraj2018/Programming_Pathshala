@@ -9,6 +9,7 @@ void prede(Node* root,Node *&pre)
 }
 void succe(Node* root,Node *&suc)
 {
+     
      if(root==NULL ) return;
       Node* temp=root ;
      while(temp->left) temp=temp->left;

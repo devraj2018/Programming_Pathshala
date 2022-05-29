@@ -14,6 +14,8 @@ public:
                  temp+=path[i];
                  i++;
              }
+
+             
             
             if(temp==""){i++; continue;}
             if(temp==".") continue;

@@ -19,6 +19,7 @@ vector<int> separateNegativeAndPositive(vector<int> &nums){
          else{
              j++;
          }
+         
         
         
     }

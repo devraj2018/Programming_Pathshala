@@ -19,5 +19,6 @@ int Solution::candy(vector<int> &A) {
          }
          ans+=dp[i];
    }
+   
     return ans;
 }

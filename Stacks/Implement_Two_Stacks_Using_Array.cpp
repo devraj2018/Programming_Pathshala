@@ -18,6 +18,8 @@ void twoStacks :: push1(int x)
     arr[++top1]=x; 
 }
 
+
+
 //Function to push an integer into the stack2.
 void twoStacks ::push2(int x)
 { if(top1+1==top2) return;

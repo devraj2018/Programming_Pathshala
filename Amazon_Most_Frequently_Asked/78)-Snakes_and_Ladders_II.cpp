@@ -53,9 +53,11 @@ public:
                 else if(res[new_curr]!=-1  && visited[res[new_curr]]==false)
                 {  q.push({res[new_curr],moves+1});
                    visited[res[new_curr]]=true;
+                   visited[new_curr]=true;
                 }
                 
             }
+            
             
             
         }

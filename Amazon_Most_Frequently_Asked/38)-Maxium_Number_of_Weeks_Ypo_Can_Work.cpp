@@ -1,20 +1,22 @@
 class Solution {
 public:
-    long long numberOfWeeks(vector<int>& milestones) {
-        
-        int max_no= *max_element(milestones.begin(),milestones.end());
-        
+    long long numberOfWeeks(vector<int>& nums) {
+     
         long long total=0;
-        for(auto x:milestones)
-         {
-            total+= x;
-         }
+          long long maxx=-1;
+       
+        for(auto x:nums) {
+            total+=x;
+           
+            if(x>maxx)
+                maxx=x;
+        }
         
-        long long remaining= total- max_no;
-        if(remaining >= max_no ) return total;
+          long long remaining=total-maxx;
         
-        return 2*remaining+1;
+         if(remaining>=maxx) return total;
         
+         return (2*remaining+1);
         
     }
 };

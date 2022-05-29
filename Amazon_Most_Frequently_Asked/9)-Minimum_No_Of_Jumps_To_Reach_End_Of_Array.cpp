@@ -32,31 +32,33 @@ int Solution::jump(vector<int> &A) {
 -------------------    Jump Game III ------------------------
 class Solution {
 public:
-    
-    bool helper(int start,vector<int>& arr,vector<bool>& visited)
+    bool helper(vector<int>& arr, int start,vector<int>& visited,int n,vector<bool>& ans)
     {
-         if(arr[start]==0) return true;
-         
-         if(visited[start]) return false;
+          
+          if(arr[start]==0) return true;
         
-         visited[start]=true;
-         bool left=false;
-         bool right=false;
+          if(visited[start]==1) return ans[start];
         
-         if(start-arr[start]>=0) left=helper(start-arr[start],arr,visited);
-         if(start+arr[start]<arr.size()) right=helper(start+arr[start],arr,visited);
+          visited[start]=1;
+          bool left=false,right=false;
         
-         if(left || right) return true;
+          if(start+arr[start]<n) right=helper(arr,start+arr[start],visited,n,ans);
+          if(start-arr[start]>=0) left=helper(arr,start-arr[start],visited,n,ans);
         
-         return false; 
+         return ans[start]= left|| right;
+        
+        
+        
+        
+        
         
     }
     bool canReach(vector<int>& arr, int start) {
-        
+      
         int n=arr.size();
-        vector<bool>visited(n,false);
+        vector<int>visited(n,-1);
+          vector<bool>ans(n);
         
-        return helper(start,arr,visited);
-        
+        return helper(arr,start,visited,n,ans);
     }
 };

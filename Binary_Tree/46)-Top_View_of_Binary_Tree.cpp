@@ -22,6 +22,7 @@ class Solution
                 q.pop();
                 maxx=max(maxx,hd); minn=min(minn,hd);
                
+               
                 if(mp.find(hd)==mp.end())
                     mp[hd]=curr->data;
                 if(curr->left) q.push({curr->left,hd-1});

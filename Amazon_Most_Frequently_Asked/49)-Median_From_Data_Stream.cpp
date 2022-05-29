@@ -24,6 +24,7 @@ public:
             minn.pop();
         }
         
+        
     }
     
     double findMedian() {

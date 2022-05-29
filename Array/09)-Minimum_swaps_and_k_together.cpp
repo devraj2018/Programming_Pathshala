@@ -15,6 +15,7 @@ int minSwap(int arr[], int n, int k) {
              cnt_current++;
             
         }
+        
         maxc=cnt_current;
         for(int i=countele;i<n;i++)
         { 

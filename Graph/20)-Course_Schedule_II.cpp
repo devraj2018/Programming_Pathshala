@@ -21,6 +21,7 @@ public:
             
             for(auto x:adj[curr])
                {
+                   
                 indegree[x]--;
                 if(indegree[x]==0) q.push(x);
                

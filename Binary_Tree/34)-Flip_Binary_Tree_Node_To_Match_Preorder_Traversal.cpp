@@ -1,29 +1,42 @@
 class Solution {
 public:
-    vector<int>res;
-   
-    bool helper(TreeNode* root, vector<int>& voyage,int &curr_Index)
-    {  
-           if(root==NULL) return true;
-          
-           if(root->val != voyage[curr_Index])
-               return false;
-           curr_Index++;
-           if(root->left && root->left->val != voyage[curr_Index])
-           {    res.push_back(root->val);
-                return helper(root->right,voyage,curr_Index) && helper(root->left,voyage,curr_Index);
-           }
-          else
-              return helper(root->left,voyage,curr_Index) && helper(root->right,voyage,curr_Index);
+    bool ans;
+    void helper(TreeNode* root,vector<int>&voyage,int &curr_I,vector<int>&res)
+    {
+         if(root==NULL || ans==false) return;
+         if(curr_I==voyage.size()) return;
         
-    }
+         if(voyage[curr_I]!=root->val) {
+             ans=false;
+             return;
+         }
+        
+         curr_I++;
+        
+         if(root->left && voyage[curr_I]!=root->left->val)
+         {
+             res.push_back(root->val);
+             helper(root->right,voyage,curr_I,res);
+             helper(root->left,voyage,curr_I,res);
+         }
+         else
+          {    helper(root->left,voyage,curr_I,res);
+               helper(root->right,voyage,curr_I,res);
+          }
+         
+      }
     vector<int> flipMatchVoyage(TreeNode* root, vector<int>& voyage) {
-        int curr_Index=0;
-        if(helper(root,voyage,curr_Index))
-        {
-            return res;
-        }
+        
+        vector<int>res;
+        int curr_I=0;
+        ans=true;
+        helper(root,voyage,curr_I,res);
+       
+       
+        if(ans) return res;
+        
         return {-1};
+        
         
     }
 };

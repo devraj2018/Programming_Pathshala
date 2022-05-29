@@ -27,6 +27,7 @@ void distance(TreeNode<int> *root, int node1, int node2,int lca,int curr_h=1)
      distance(root->right,node1,node2,lca,curr_h+1);
      
 }
+
 int findDistanceBetweenNodes(TreeNode<int> *root, int node1, int node2)
 {
     h1=-1;h2=-1;lh=-1;

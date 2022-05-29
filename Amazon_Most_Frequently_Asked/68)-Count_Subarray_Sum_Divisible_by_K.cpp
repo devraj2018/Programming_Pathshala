@@ -15,6 +15,7 @@ public:
              if(mp.find(rem)!=mp.end())
                  res+=mp[rem];
             
+            
             mp[rem]++;
             
             

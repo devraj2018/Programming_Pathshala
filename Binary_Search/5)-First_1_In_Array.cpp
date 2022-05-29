@@ -18,6 +18,7 @@ int main() {
 					 else if(arr[mid]>1) high=mid-1;
 					 else low=mid+1;
 			    }
+				
 
 			 if(f== -1) cout<<-1<<endl;
 	    	 else cout<<f+1<<endl;
