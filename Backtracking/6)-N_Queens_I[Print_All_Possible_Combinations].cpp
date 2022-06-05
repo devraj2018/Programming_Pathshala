@@ -1,53 +1,52 @@
 class Solution {
 public:
-    vector<vector<string>> res;
-    vector<string> curr;
-    bool isSafe(int row,int col,int n)
-    {
-         int x=row-1,y;
-         while(x>=0)
-         {
-             if(curr[x][col]=='Q') return false;
-             x--;
-         }
-         x=row-1,y=col-1;
-        while(x>=0 && y>=0)
-          {
-             if(curr[x][y]=='Q') return false;
-             x--;y--;
-          }
-          x=row-1,y=col+1;
-          while(x>=0 && y>=0 && y<n )
-           {
-             if(curr[x][y]=='Q') return false;
-             x--;y++;
-           }
-         return true;
-      }
-    void helper(int row,int n)
-      {  
-         if(row==n)
-         {   res.push_back(curr);
-             return;
-         }
-         for(int c=0;c<n;c++)
-            {
-               if(isSafe(row,c,n))
-                 {
-                  curr[row][c]='Q';
-                  helper(row+1,n);
-                  curr[row][c]='.';
-                 }
+    vector<vector<string>>res;
+    bool isValid(int x,int y,vector<string>&curr,int n)
+    { 
+         
+         for(int i=0;i<=x;i++) if(curr[i][y]=='Q') return false;
+      
+         int r=x,c=y;
+         while(r>=0 && c>=0)
+            {   if(curr[r][c]=='Q') return false;
+                 r--;c--;
             }
-      }
+         r=x,c=y;
+         while(r>=0 && c<n)
+            {
+                 if(curr[r][c]=='Q') return false;
+                  r--;c++;
+            }
+        
+        return true;
+     
+    }
+    void helper(int curr_row, vector<string>&curr,int n)
+    {
+        if(curr_row==n)
+        {
+             res.push_back(curr);
+             return;
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            if(isValid(curr_row,i,curr,n))
+            {
+                curr[curr_row][i]='Q';
+                helper(curr_row+1,curr,n);
+                curr[curr_row][i]='.';
+            }
+        }
+     }
     
     vector<vector<string>> solveNQueens(int n) {
-        string temp="";
-        for(int i=1;i<=n;i++) temp+=".";
-        for(int i=0;i<n;i++) curr.push_back(temp);
+       
+         string s="";
+         for(int i=0;i<n;i++) s+=".";
         
-        helper(0,n);
-        return res;
-        
-    }
+         vector<string>curr(n,s);
+         helper(0,curr,n);
+         return res;
+     }
 };
