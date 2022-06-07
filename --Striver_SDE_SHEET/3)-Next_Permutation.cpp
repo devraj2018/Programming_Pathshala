@@ -9,6 +9,8 @@ public:
             if(nums[k]<nums[k+1]) break;
         }
         
+
+        
         if(k==-1) reverse(nums.begin(),nums.end());
         else
         {
