@@ -7,5 +7,6 @@ int maximumProfit(vector<int> &nums){
             maxx=max(maxx,nums[i]-minn);
             minn=min(minn,nums[i]);
         }
+        
         return maxx;
 }
