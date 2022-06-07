@@ -15,6 +15,8 @@ void setZeros(vector<vector<int>> &matrix)
                     col[j]=1;
                 }
             }
+
+            
         }
         for(int i=0;i<r;i++)
         {
