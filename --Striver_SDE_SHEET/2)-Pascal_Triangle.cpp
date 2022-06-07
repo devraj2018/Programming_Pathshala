@@ -7,6 +7,8 @@ vector<vector<long long int>> printPascal(int n)
     {
          vector<long long int> temp(i,1);
         
+
+        
          for(int j=1;j<i-1;j++)
          {
              temp[j]=res[i-2][j-1]+res[i-2][j];
