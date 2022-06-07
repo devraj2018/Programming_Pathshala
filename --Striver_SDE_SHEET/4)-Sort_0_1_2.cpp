@@ -11,6 +11,8 @@ void sort012(int *arr, int n)
              i++;
              j++;
              
+
+             
          }
         else if(arr[j]==2)
         {
