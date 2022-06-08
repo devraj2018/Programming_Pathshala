@@ -16,7 +16,7 @@ bool dfs(vector<vector<int>> &maze,int i,int j,vector<vector<int>> &ans,int n,ve
    dfs(maze,i+1,j,ans,n,res);
    dfs(maze,i-1,j,ans,n,res);
    dfs(maze,i,j+1,ans,n,res);
-dfs(maze,i,j-1,ans,n,res);
+   dfs(maze,i,j-1,ans,n,res);
    ans[i][j]=0;
 }
 vector<vector<int> > ratInAMaze(vector<vector<int> > &maze, int n){
