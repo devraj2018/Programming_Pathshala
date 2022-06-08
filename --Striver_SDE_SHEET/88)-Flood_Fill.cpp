@@ -16,8 +16,6 @@ void dfs(int x,int y,int newC,int oldC,vector<vector<int>> &image)
      }
      
     
-    
-    
 }
 vector<vector<int>> floodFill(vector<vector<int>> &image, int x, int y, int newColor)
 {
