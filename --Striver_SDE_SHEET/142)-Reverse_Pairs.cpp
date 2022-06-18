@@ -48,12 +48,7 @@ long long int merge(vector<int>&arr,long long low,long long mid,long long high)
      while(j<n2) arr[k++]=arr2[j++];
      
      return count;
-    
-    
-    
-    
-    
-    
+      
 }
 long long int inversion(vector<int> &arr,long long low,long long high)
 {
