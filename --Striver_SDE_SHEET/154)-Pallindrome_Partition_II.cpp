@@ -1,30 +1,28 @@
- 
-bool isPalindrome(string str, int i, int j) {
-    while (i <= j) {
-        if (str[i++] != str[j--]) {
-            return false;
-        }
+#include<bits/stdc++.h>
+bool isPalin(int i, int j, string& s){
+    while(i<=j){
+        if(s[i]!=s[j]) return false;
+        i++; j--;
     }
     return true;
 }
+int solve(int i, int n, string& s, vector<int>& dp){
+    if(i>=n) return 0;
+    if(dp[i]!=-1) return dp[i];
 
- 
-int minPalinPartition(string str, int i, int j) {
-     
-
-    if (i == j || isPalindrome(str, i, j)) return 0;
-   
-    int min = INT_MAX;
-    for (int k = i; k <= j - 1; k++) {
-         int count = 1 + minPalinPartition(str, i, k) + minPalinPartition(str, k + 1, j);
-         if (count < min)   min = count;
-        
+    int cost = INT_MAX;
+    for(int j=i;j<n;j++){
+        if(isPalin(i, j, s)){
+            int cut = 1 + solve(j+1, n, s, dp);
+            cost = min(cut, cost);
+        }
     }
- 
-    return min;
+    return dp[i] = cost;
 }
+int palindromePartitioning(string s) {
+    int n = s.length();
+    vector<int> dp(n, -1);
 
-int palindromePartitioning(string str) {
-    int n = str.size();
-    return minPalinPartition(str, 0, n - 1);
+    int ans = solve(0, n, s, dp)-1;
+    return ans;
 }
