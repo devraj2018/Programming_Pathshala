@@ -17,6 +17,7 @@ public:
             carry=sum/10;
             prev->next=newNode;
             prev=newNode;
+            
             curr1=curr1?curr1->next:curr1;
             curr2=curr2?curr2->next:curr2;
         }

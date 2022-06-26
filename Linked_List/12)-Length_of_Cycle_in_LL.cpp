@@ -12,7 +12,7 @@ int countNodesinLoop(struct Node *head)
         }
         if(fast==NULL || fast->next==NULL) return 0;
         
-        if(slow==slow->next) return 1;    //If there is self loop
+        
         
         int count=1;
         slow=slow->next;

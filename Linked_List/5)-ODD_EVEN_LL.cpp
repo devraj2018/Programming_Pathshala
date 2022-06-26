@@ -15,10 +15,7 @@ public:
                   temp->next=NULL;
                   isOdd=false;
 
-
-
-
-                }
+               }
               else
                {
                  even_end->next=temp;
@@ -26,6 +23,7 @@ public:
                   temp->next=NULL;
                   isOdd=true;
               }
+        
          temp=nxt;
          }
         odd_end->next=even->next;

@@ -1,8 +1,10 @@
+
+
 class Solution {
     struct compare {
         bool operator()(const ListNode* l, const ListNode* r) {
             return l->val > r->val;
-        }
+        } 
     };
     
 public:
@@ -14,8 +16,6 @@ public:
             }
         }
 
-        
-        
         if (q.empty()) {
             return NULL;
         }
@@ -35,6 +35,25 @@ public:
                 q.push(tail->next);
             }
         }
+
+        // ListNode* head = q.top();     // For Descending order LL
+        // q.pop();
+        // if (head->next) {
+        //     q.push(head->next);
+        // }
+
+        // while(!q.empty())   
+        // {
+        //      ListNode* temp=q.top();
+        //      q.pop();
+
+        //      if(temp->next) q.push(temp->next);
+
+        //      temp->next=head;
+        //      head=temp;
+
+ 
+        // }
         
         return result;
     }
