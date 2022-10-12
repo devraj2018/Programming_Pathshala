@@ -47,7 +47,7 @@ public:
               }
        }
        
-       curr1=head;
+        curr1=head;
         Node* curr2=newhead;
         while(curr1)
         {

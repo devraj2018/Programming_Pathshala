@@ -13,6 +13,8 @@ class Solution
 	     bool visited[N+1][N+1]={false};
 	     visited[KnightPos[0]][KnightPos[1]]=true;
 	     
+		
+
 	     while(!q.empty())
 	     {
 	         vector<int> curr=q.front();

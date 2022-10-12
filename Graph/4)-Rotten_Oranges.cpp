@@ -17,6 +17,8 @@ public:
                  else if(grid[i][j]==1) fresh_count++;
             }
         }
+        if(fresh_count==0) return 0;
+        
         int ans=0;
         while(!q.empty())
         {    

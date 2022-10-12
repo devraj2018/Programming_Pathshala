@@ -66,6 +66,7 @@ public:
                   headB=headB->next;
                   tail=tail->next;
             }
+            
             first=!first;
         }
         head= dummy->next;

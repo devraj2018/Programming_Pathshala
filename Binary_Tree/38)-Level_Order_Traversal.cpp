@@ -6,7 +6,8 @@ public:
         queue<TreeNode*>q;
         q.push(root);
         while(!q.empty())
-        {    vector<int>v;
+        {   
+             vector<int>v;
              int size=q.size();
              for(int i=0;i<size;i++)
                {   TreeNode* curr=q.front();
